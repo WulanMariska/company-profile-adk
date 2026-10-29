@@ -1,0 +1,114 @@
+
+/* ========================================
+   CMS ADK - DASHBOARD
+   Tema: Merah, Hitam, Putih
+======================================== */
+
+:root {
+    --adk-red: #dc171e;
+    --adk-black: #151719;
+    --adk-white: #ffffff;
+    --adk-bg: #f7f8fa;
+    --adk-border: #e5e9ef;
+    --adk-text: #171b22;
+    --adk-muted: #718096;
+}
+
+/* Background dashboard */
+body.body--dashboard {
+    background: var(--adk-bg);
+    color: var(--adk-text);
+}
+
+/* Card dashboard */
+.adk-dashboard-card {
+    background: var(--adk-white);
+    border: 1px solid var(--adk-border);
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: box-shadow 0.2s ease;
+}
+
+.adk-dashboard-card:hover {
+    box-shadow: 0 4px 16px rgba(20, 25, 35, 0.06);
+}
+
+/* Grid statistik */
+.adk-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 24px;
+}
+
+/* Grid akses cepat */
+.adk-quick-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+}
+
+/* Ikon merah */
+.adk-icon {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffe8e9;
+    color: var(--adk-red);
+    border-radius: 14px;
+    margin-bottom: 14px;
+}
+
+/* Judul dan deskripsi */
+.adk-dashboard-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 6px;
+}
+
+.adk-dashboard-subtitle {
+    color: var(--adk-muted);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Link dan tombol */
+.adk-link {
+    color: var(--adk-red);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.adk-link:hover {
+    color: #a90e14;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .adk-stat-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .adk-quick-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .adk-stat-grid,
+    .adk-quick-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .adk-dashboard-title {
+        font-size: 23px;
+    }
+
+    .adk-dashboard-card {
+        padding: 16px;
+    }
+}

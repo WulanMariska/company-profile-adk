@@ -1,0 +1,1796 @@
+/* =========================================================
+
+   DETAIL TELEKOMUNIKASI ADK
+
+========================================================= */
+
+
+
+
+
+/* =========================================================
+
+   HERO
+
+========================================================= */
+
+
+
+.telecom-hero {
+
+    position: relative;
+
+
+
+    width: 100%;
+
+    min-height: 300px;
+
+
+
+    background-image:
+
+        url("../images-layanan-telekomunikasi/telekomunikasi.png");
+
+
+
+    background-size: cover;
+
+    background-position: center;
+
+
+
+    display: flex;
+
+    align-items: center;
+
+
+
+    overflow: hidden;
+
+}
+
+
+
+.telecom-hero-overlay {
+
+    position: absolute;
+
+
+
+    inset: 0;
+
+
+
+    background: rgba(0, 0, 0, 0.48);
+
+
+
+    z-index: 1;
+
+}
+
+
+
+.telecom-hero-content {
+
+    position: relative;
+
+
+
+    z-index: 2;
+
+
+
+    width: min(1100px, 90%);
+
+
+
+    margin: 0 auto;
+
+}
+
+
+
+.telecom-hero-content h1 {
+
+    max-width: 650px;
+
+
+
+    margin: 0 0 10px;
+
+
+
+    color: #ffffff;
+
+
+
+    font-size: clamp(28px, 3.2vw, 42px);
+
+
+
+    line-height: 1.05;
+
+
+
+    font-weight: 800;
+
+}
+
+
+
+.telecom-hero-content p {
+
+    max-width: 450px;
+
+
+
+    margin: 0 0 17px;
+
+
+
+    color: #ffffff;
+
+
+
+    font-size: 11px;
+
+
+
+    line-height: 1.5;
+
+}
+
+
+
+.telecom-back-button {
+
+    display: inline-flex;
+
+
+
+    align-items: center;
+
+
+
+    justify-content: center;
+
+
+
+    padding: 9px 15px;
+
+
+
+    background: #ed1c24;
+
+
+
+    color: #ffffff;
+
+
+
+    border-radius: 3px;
+
+
+
+    font-size: 9px;
+
+
+
+    font-weight: 600;
+
+
+
+    text-decoration: none;
+
+
+
+    transition: background 0.2s ease;
+
+}
+
+
+
+.telecom-back-button:hover {
+
+    background: #c9151c;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   MAIN
+
+========================================================= */
+
+
+
+.telecom-main {
+
+    width: 100%;
+
+
+
+    background: #ffffff;
+
+}
+
+
+
+.telecom-container {
+
+    width: min(1170px, 90%);
+
+
+
+    margin: 0 auto;
+
+
+
+    padding: 45px 0 65px;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   LAYOUT
+
+========================================================= */
+
+
+
+.telecom-layout {
+
+    display: grid;
+
+
+
+    grid-template-columns:
+
+        minmax(0, 1fr)
+
+        285px;
+
+
+
+    gap: 30px;
+
+
+
+    align-items: start;
+
+}
+
+
+
+.telecom-left {
+
+    min-width: 0;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   FOTO
+
+========================================================= */
+
+
+
+.telecom-image {
+
+    width: 100%;
+
+
+
+    overflow: hidden;
+
+
+
+    border-radius: 6px;
+
+
+
+    margin: 0;
+
+}
+
+
+
+.telecom-image img {
+
+    display: block;
+
+
+
+    width: 100%;
+
+
+
+    height: 385px;
+
+
+
+    object-fit: cover;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   SIDEBAR STICKY
+
+========================================================= */
+
+
+
+.telecom-sidebar {
+
+    display: flex;
+
+
+
+    flex-direction: column;
+
+
+
+    gap: 14px;
+
+
+
+    align-items: stretch;
+
+
+
+    position: sticky;
+
+
+
+    top: 90px;
+
+
+
+    align-self: start;
+
+
+
+    z-index: 10;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   CONSULTATION CARD
+
+========================================================= */
+
+
+
+.telecom-consultation-card {
+
+    width: 100%;
+
+
+
+    box-sizing: border-box;
+
+
+
+    padding: 17px 18px;
+
+
+
+    background: #fff0f0;
+
+
+
+    border: 1px solid #f2d6d6;
+
+
+
+    border-radius: 6px;
+
+
+
+    position: relative;
+
+}
+
+
+
+.telecom-consultation-label {
+
+    display: block;
+
+
+
+    margin-bottom: 6px;
+
+
+
+    color: #ed1c24;
+
+
+
+    font-size: 10px;
+
+
+
+    font-weight: 700;
+
+
+
+    letter-spacing: 0.4px;
+
+}
+
+
+
+.telecom-consultation-card h3 {
+
+    margin: 0 0 8px;
+
+
+
+    color: #171717;
+
+
+
+    font-size: 14px;
+
+
+
+    line-height: 1.25;
+
+}
+
+
+
+.telecom-consultation-card > p {
+
+    margin: 0 0 12px;
+
+
+
+    color: #666666;
+
+
+
+    font-size: 9px;
+
+
+
+    line-height: 1.45;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   CONSULTATION BUTTON
+
+========================================================= */
+
+
+
+.telecom-consultation-primary,
+
+.telecom-consultation-secondary {
+
+    display: flex;
+
+
+
+    align-items: center;
+
+
+
+    justify-content: center;
+
+
+
+    width: 100%;
+
+
+
+    box-sizing: border-box;
+
+
+
+    padding: 8px 10px;
+
+
+
+    border-radius: 4px;
+
+
+
+    font-size: 8px;
+
+
+
+    font-weight: 600;
+
+
+
+    text-decoration: none;
+
+
+
+    text-align: center;
+
+}
+
+
+
+.telecom-consultation-primary {
+
+    margin-bottom: 6px;
+
+
+
+    background: #ed1c24;
+
+
+
+    color: #ffffff;
+
+}
+
+
+
+.telecom-consultation-secondary {
+
+    background: #ffffff;
+
+
+
+    color: #222222;
+
+
+
+    border: 1px solid #dddddd;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   CONSULTATION INFO
+
+========================================================= */
+
+
+
+.telecom-consultation-info {
+
+    display: flex;
+
+
+
+    align-items: flex-start;
+
+
+
+    gap: 7px;
+
+
+
+    margin-top: 9px;
+
+
+
+    color: #666666;
+
+
+
+    font-size: 8px;
+
+
+
+    line-height: 1.4;
+
+}
+
+
+
+.telecom-consultation-info img {
+
+    width: 13px;
+
+
+
+    height: 13px;
+
+
+
+    flex: 0 0 13px;
+
+
+
+    object-fit: contain;
+
+}
+
+
+
+.telecom-consultation-info span {
+
+    color: #666666;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   OFFICE CARD
+
+========================================================= */
+
+
+
+.telecom-office-card {
+
+    width: 100%;
+
+
+
+    margin: 0;
+
+
+
+    padding: 16px 18px;
+
+
+
+    background: #111111;
+
+
+
+    border-radius: 6px;
+
+
+
+    color: #ffffff;
+
+
+
+    min-height: 86px;
+
+
+
+    box-sizing: border-box;
+
+}
+
+
+
+.telecom-office-card h3 {
+
+    margin: 0 0 10px;
+
+
+
+    color: #ffffff;
+
+
+
+    font-size: 14px;
+
+
+
+    font-weight: 700;
+
+}
+
+
+
+.telecom-office-card p {
+
+    margin: 0 0 10px;
+
+
+
+    color: #ffffff;
+
+
+
+    font-size: 9px;
+
+
+
+    line-height: 1.4;
+
+}
+
+
+
+.telecom-office-card a {
+
+    display: inline-block;
+
+
+
+    color: #ed1c24;
+
+
+
+    font-size: 10px;
+
+
+
+    font-weight: 700;
+
+
+
+    text-decoration: none;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   DESCRIPTION
+
+========================================================= */
+
+
+
+.telecom-description {
+
+    margin-top: 45px;
+
+}
+
+
+
+.telecom-description h2 {
+
+    margin: 0 0 13px;
+
+
+
+    color: #111111;
+
+
+
+    font-size: 22px;
+
+
+
+    line-height: 1.2;
+
+
+
+    font-weight: 600;
+
+}
+
+
+
+.telecom-description > p {
+
+    max-width: 760px;
+
+
+
+    margin: 0;
+
+
+
+    color: #555555;
+
+
+
+    font-size: 14px;
+
+
+
+    line-height: 1.65;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   FOUR FEATURE CARDS
+
+========================================================= */
+
+
+
+.telecom-features {
+
+    display: grid;
+
+
+
+    grid-template-columns: repeat(2, 1fr);
+
+
+
+    gap: 14px;
+
+
+
+    margin-top: 28px;
+
+}
+
+
+
+.telecom-feature-card {
+
+    min-height: 0;
+
+
+
+    height: 82px;
+
+
+
+    box-sizing: border-box;
+
+
+
+    padding: 15px 17px;
+
+
+
+    background: #eeeeee;
+
+
+
+    border-radius: 6px;
+
+}
+
+
+
+.telecom-feature-card h3 {
+
+    display: flex;
+
+
+
+    align-items: center;
+
+
+
+    gap: 7px;
+
+
+
+    margin: 0 0 7px;
+
+
+
+    color: #222222;
+
+
+
+    font-size: 13px;
+
+
+
+    font-weight: 700;
+
+}
+
+
+
+.telecom-feature-card h3 span {
+
+    width: 7px;
+
+
+
+    height: 7px;
+
+
+
+    flex: 0 0 7px;
+
+
+
+    background: #ed1c24;
+
+
+
+    border-radius: 50%;
+
+}
+
+
+
+.telecom-feature-card p {
+
+    margin: 0;
+
+
+
+    color: #555555;
+
+
+
+    font-size: 11px;
+
+
+
+    line-height: 1.4;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   CTA
+
+========================================================= */
+
+
+
+.telecom-cta {
+
+    position: relative;
+
+
+
+    width: 100%;
+
+
+
+    min-height: 175px;
+
+
+
+    background-image:
+
+        url("../images-layanan-telekomunikasi/footer.png");
+
+
+
+    background-size: cover;
+
+
+
+    background-position: center;
+
+
+
+    overflow: hidden;
+
+}
+
+
+
+.telecom-cta-overlay {
+
+    position: absolute;
+
+
+
+    inset: 0;
+
+
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            rgba(0, 0, 0, 0.88),
+
+            rgba(0, 0, 0, 0.38)
+
+        );
+
+
+
+    z-index: 1;
+
+}
+
+
+
+.telecom-cta-content {
+
+    position: relative;
+
+
+
+    z-index: 2;
+
+
+
+    width: min(1100px, 90%);
+
+
+
+    margin: 0 auto;
+
+
+
+    padding: 35px 0;
+
+}
+
+
+
+.telecom-cta-content h2 {
+
+    margin: 0 0 7px;
+
+
+
+    color: #ffffff;
+
+
+
+    font-size: clamp(20px, 2.4vw, 28px);
+
+
+
+    line-height: 1.1;
+
+
+
+    font-weight: 800;
+
+}
+
+
+
+.telecom-cta-content p {
+
+    max-width: 480px;
+
+
+
+    margin: 0 0 13px;
+
+
+
+    color: #dddddd;
+
+
+
+    font-size: 8px;
+
+
+
+    line-height: 1.5;
+
+}
+
+
+
+.telecom-cta-content a {
+
+    display: inline-flex;
+
+
+
+    padding: 8px 14px;
+
+
+
+    background: #ed1c24;
+
+
+
+    color: #ffffff;
+
+
+
+    border-radius: 3px;
+
+
+
+    font-size: 10px;
+
+
+
+    font-weight: 600;
+
+
+
+    text-decoration: none;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   TABLET
+
+========================================================= */
+
+
+
+@media (max-width: 900px) {
+
+
+
+    .telecom-layout {
+
+        grid-template-columns: 1fr;
+
+
+
+        gap: 28px;
+
+    }
+
+
+
+    .telecom-sidebar {
+
+        position: static;
+
+
+
+        display: flex;
+
+
+
+        flex-direction: column;
+
+
+
+        gap: 14px;
+
+
+
+        width: 100%;
+
+    }
+
+
+
+    .telecom-image {
+
+        position: static;
+
+    }
+
+
+
+    .telecom-image img {
+
+        height: 320px;
+
+    }
+
+}
+
+
+
+
+
+/* =========================================================
+
+   MOBILE
+
+========================================================= */
+
+
+
+@media (max-width: 600px) {
+
+
+
+    .telecom-hero {
+
+        min-height: 310px;
+
+
+
+        background-position: center center;
+
+    }
+
+
+
+    .telecom-hero-overlay {
+
+        background: rgba(0, 0, 0, 0.48);
+
+    }
+
+
+
+    .telecom-hero-content {
+
+        width: 88%;
+
+    }
+
+
+
+    .telecom-hero-content h1 {
+
+        font-size: 27px;
+
+
+
+        line-height: 1.08;
+
+    }
+
+
+
+    .telecom-hero-content p {
+
+        max-width: 330px;
+
+
+
+        font-size: 10px;
+
+
+
+        line-height: 1.5;
+
+    }
+
+
+
+    .telecom-back-button {
+
+        padding: 9px 14px;
+
+
+
+        font-size: 9px;
+
+    }
+
+
+
+
+
+    /* =====================================================
+
+       MAIN
+
+    ===================================================== */
+
+
+
+    .telecom-container {
+
+        width: 90%;
+
+
+
+        padding: 30px 0 45px;
+
+    }
+
+
+
+    .telecom-layout {
+
+        grid-template-columns: 1fr;
+
+
+
+        gap: 22px;
+
+    }
+
+
+
+
+
+    /* =====================================================
+
+       FOTO
+
+    ===================================================== */
+
+
+
+    .telecom-image {
+
+        position: static;
+
+    }
+
+
+
+    .telecom-image img {
+
+        width: 100%;
+
+
+
+        height: 280px;
+
+
+
+        object-fit: cover;
+
+    }
+
+
+
+
+
+    /* =====================================================
+
+       SIDEBAR
+
+    ===================================================== */
+
+
+
+    .telecom-sidebar {
+
+        position: static;
+
+
+
+        display: flex;
+
+
+
+        flex-direction: column;
+
+
+
+        gap: 14px;
+
+
+
+        width: 100%;
+
+    }
+
+
+
+
+
+    /* =====================================================
+
+       CARD PINK
+
+    ===================================================== */
+
+
+
+    .telecom-consultation-card {
+
+        padding: 15px 16px 13px;
+
+    }
+
+
+
+    .telecom-consultation-card h3 {
+
+        font-size: 13px;
+
+    }
+
+
+
+    .telecom-consultation-card > p {
+
+        font-size: 9px;
+
+    }
+
+
+
+    .telecom-consultation-info {
+
+        font-size: 8px;
+
+
+
+        gap: 7px;
+
+
+
+        margin-top: 8px;
+
+    }
+
+
+
+
+
+  /* CARD KANTOR OPERASIONAL - MOBILE */
+.telecom-office-card {
+    width: 100%;
+    height: auto;
+    min-height: 110px;
+    padding: 16px 16px 22px;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+.telecom-office-card h3 {
+    font-size: 12px;
+    line-height: 1.4;
+    margin: 0 0 8px;
+}
+
+.telecom-office-card p {
+    font-size: 9px;
+    line-height: 1.5;
+    margin: 0 0 10px;
+}
+
+.telecom-office-card a {
+    display: inline-block;
+    font-size: 9px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+
+
+
+
+    /* =====================================================
+
+       DESCRIPTION
+
+    ===================================================== */
+
+
+
+    .telecom-description {
+
+        margin-top: 30px;
+
+    }
+
+
+
+    .telecom-description h2 {
+
+        margin: 0 0 14px;
+
+
+
+        font-size: 22px;
+
+    }
+
+
+
+    .telecom-description > p {
+
+        max-width: 100%;
+
+
+
+        font-size: 10px;
+
+
+
+        line-height: 1.55;
+
+    }
+
+
+
+
+
+    /* =====================================================
+
+       FEATURES
+
+    ===================================================== */
+
+
+
+    .telecom-features {
+
+        grid-template-columns: 1fr;
+
+
+
+        gap: 10px;
+
+
+
+        margin-top: 22px;
+
+    }
+
+
+
+    .telecom-feature-card {
+
+        height: auto;
+
+
+
+        min-height: 68px;
+
+
+
+        padding: 13px 14px;
+
+    }
+
+
+
+    .telecom-feature-card h3 {
+
+        font-size: 10px;
+
+    }
+
+
+
+    .telecom-feature-card p {
+
+        font-size: 9px;
+
+    }
+
+
+
+
+
+    /* =====================================================
+
+       CTA
+
+    ===================================================== */
+
+
+
+    .telecom-cta {
+
+        min-height: 170px;
+
+    }
+
+
+
+    .telecom-cta-content {
+
+        width: 88%;
+
+
+
+        padding: 32px 0;
+
+    }
+
+
+
+    .telecom-cta-content h2 {
+
+        font-size: 21px;
+
+    }
+
+
+
+    .telecom-cta-content p {
+
+        font-size: 9px;
+
+    }
+
+
+
+    .telecom-cta-content a {
+
+        font-size: 9px;
+
+
+
+        padding: 8px 13px;
+
+    }
+
+
+
+}
+
+
+/* =========================================================
+   RESPONSIVE REVISION — PT. ARI DHARMA KANTI
+   Fokus: tablet/mobile, gambar tidak terpotong, kartu lebih ringkas.
+   Gaya desktop yang sudah ada tetap dipertahankan.
+========================================================= */
+
+.telecom-image img {
+    cursor: zoom-in;
+    -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 1024px) {
+    .telecom-layout {
+        grid-template-columns: minmax(0, 1fr) 270px;
+        gap: 24px;
+    }
+
+    .telecom-sidebar {
+        top: 82px;
+    }
+
+    .telecom-consultation-card {
+        padding: 17px;
+    }
+
+    .telecom-office-card {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 900px) {
+    .telecom-hero {
+        min-height: 270px;
+        padding: 42px 0;
+        box-sizing: border-box;
+    }
+
+    .telecom-hero-content {
+        width: min(100% - 40px, 760px);
+    }
+
+    .telecom-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+    }
+
+    .telecom-sidebar {
+        position: static;
+        top: auto;
+        display: grid;
+        grid-template-columns: minmax(0, 1.45fr) minmax(220px, 0.8fr);
+        align-items: start;
+        gap: 16px;
+        width: 100%;
+    }
+
+    .telecom-consultation-card, .telecom-office-card {
+        min-width: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .telecom-image img {
+        width: 100%;
+        height: auto;
+        max-height: 390px;
+        object-fit: contain;
+    }
+
+    .telecom-feature-card {
+        min-width: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .telecom-hero {
+        min-height: 0;
+        padding: 38px 0;
+        background-position: center;
+    }
+
+    .telecom-hero-content {
+        width: calc(100% - 32px);
+    }
+
+    .telecom-hero-content h1 {
+        font-size: clamp(22px, 6vw, 30px);
+        line-height: 1.2;
+        overflow-wrap: anywhere;
+    }
+
+    .telecom-hero-content p {
+        max-width: 100%;
+        font-size: 12px;
+        line-height: 1.55;
+    }
+
+    .telecom-hero-content a {
+        max-width: 100%;
+        min-height: 38px;
+        box-sizing: border-box;
+        font-size: 11px;
+    }
+
+    .telecom-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+    }
+
+    .telecom-sidebar {
+        display: flex;
+        flex-direction: column;
+        position: static;
+        gap: 12px;
+    }
+
+    .telecom-consultation-card {
+        padding: 16px;
+        border-radius: 8px;
+    }
+
+    .telecom-office-card {
+        padding: 15px 16px;
+        border-radius: 8px;
+    }
+
+    .telecom-consultation-card h3, .telecom-office-card h3 {
+        font-size: 16px;
+        line-height: 1.35;
+    }
+
+    .telecom-consultation-card > p, .telecom-office-card p {
+        font-size: 12px;
+        line-height: 1.55;
+        overflow-wrap: anywhere;
+    }
+
+    .telecom-consultation-card a {
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow-wrap: anywhere;
+    }
+
+    .telecom-image img {
+        width: 100%;
+        height: auto;
+        max-height: 340px;
+        object-fit: contain;
+    }
+
+    .telecom-layout .telecom-feature-card {
+        overflow-wrap: anywhere;
+    }
+}

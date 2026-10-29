@@ -1,0 +1,827 @@
+/* =========================================================
+   BERANDA - GLOBAL
+========================================================= */
+
+.home-hero,
+.home-features,
+.home-services,
+.home-gallery,
+.home-about,
+.home-cta {
+    width: 100%;
+}
+
+.home-hero *,
+.home-features *,
+.home-services *,
+.home-gallery *,
+.home-about *,
+.home-cta * {
+    box-sizing: border-box;
+}
+
+.home-container {
+    width: min(1120px, 90%);
+    margin: 0 auto;
+}
+
+.home-center {
+    display: flex;
+    justify-content: center;
+}
+
+/* Label dengan garis merah: "— Layanan Kami" */
+.home-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin: 0;
+
+    color: #111;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.home-label i {
+    display: block;
+    flex: 0 0 34px;
+    width: 34px;
+    height: 2px;
+    background: #e31b23;
+}
+
+.home-label-center {
+    justify-content: center;
+}
+
+/* Tombol outline (Kenali Layanan Kami / Kepoin Galeri Kami) */
+.home-btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+
+    min-height: 44px;
+    padding: 0 30px;
+
+    background: #fff;
+    color: #111;
+    border: 1px solid #f4c3c9;
+    border-radius: 4px;
+
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.home-btn-outline span {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.home-btn-outline:hover {
+    background: #fff5f6;
+    border-color: #e31b23;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.home-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    min-height: 460px;
+    background: #0b0b0d;
+    overflow: hidden;
+}
+
+.home-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.home-hero-content {
+    position: relative;
+    z-index: 1;
+
+    width: min(1180px, 90%);
+    margin: 0 auto;
+    padding: 40px 0;
+
+    color: #fff;
+}
+
+.home-hero-label {
+    margin: 0 0 14px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.home-hero h1 {
+   margin: 0;
+    max-width: 700px;
+
+    font-size: clamp(34px, 4.5vw, 58px);
+    line-height: 1.12;
+    font-weight: 800;
+
+    color: #fff;
+    text-align: left;;
+}
+
+.home-hero h1 span {
+    color: #ff1f2d;
+}
+
+.home-hero-text {
+    max-width: 360px;
+    margin: 0 0 24px;
+
+    color: #f1f1f1;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.home-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.home-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    min-height: 38px;
+    padding: 0 18px;
+
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.home-btn-red {
+    background: #e31b23;
+    color: #fff;
+}
+
+.home-btn-red:hover {
+    background: #c9151c;
+}
+
+.home-btn-white {
+    background: #fff;
+    color: #111;
+}
+
+.home-btn-white:hover {
+    background: #eee;
+}
+
+
+/* =========================================================
+   KEUNGGULAN
+========================================================= */
+
+.home-features {
+    background: #fff;
+    border-bottom: 1px solid #ececec;
+}
+
+.home-features-inner {
+    width: min(1120px, 92%);
+    margin: 0 auto;
+    padding: 30px 0;
+
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.home-feature {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 6px 20px;
+    border-left: 1px solid #f3b9be;
+}
+
+.home-feature:first-child {
+    border-left: 0;
+}
+
+.home-feature img {
+    flex: 0 0 auto;
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+}
+
+.home-feature strong {
+    display: block;
+    margin-bottom: 3px;
+
+    color: #111;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.home-feature span {
+    display: block;
+    color: #222;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   LAYANAN KAMI
+========================================================= */
+
+.home-services {
+    padding: 64px 0 60px;
+    background: #fff;
+}
+
+.home-services-head {
+    width: min(820px, 90%);
+    margin: 0 auto 44px;
+    text-align: center;
+}
+
+.home-services-head h3 {
+    margin: 26px 0 10px;
+
+    color: #111;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.home-services-head p {
+    margin: 0;
+
+    color: #111;
+    font-size: 18px;
+    line-height: 1.55;
+}
+
+.home-cards {
+    width: min(780px, 90%);
+    margin: 0 auto 44px;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 44px 34px;
+}
+
+.home-card {
+    display: flex;
+    flex-direction: column;
+
+    background: #fddcdc;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.home-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 2 / 1;
+    object-fit: cover;
+}
+
+.home-card-body {
+    flex: 1;
+    min-height: 140px;
+    padding: 18px 20px 24px;
+}
+
+.home-card-body h4 {
+    margin: 0 0 10px;
+
+    color: #111;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.home-card-body p {
+    margin: 0;
+
+    color: #111;
+    font-size: 15px;
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   GALERI LAYANAN (SLIDER)
+========================================================= */
+
+.home-gallery {
+    padding: 52px 0 56px;
+    background: #fff;
+    border-top: 1px solid #ececec;
+}
+
+.home-gallery-sub {
+    margin: 8px 0 0 46px;
+    color: #111;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.home-carousel {
+    --w: 300px;
+    --h: 440px;
+    --x1: 235px;
+    --x2: 410px;
+
+    position: relative;
+    width: 100%;
+    height: calc(var(--h) + 30px);
+    margin-top: 28px;
+    overflow: hidden;
+    outline: none;
+}
+
+.home-carousel-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.home-slide {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 0;
+
+    width: var(--w);
+    height: var(--h);
+    margin: 0;
+
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.5);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.home-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.home-slide[data-pos="0"] {
+    z-index: 3;
+    opacity: 1;
+    pointer-events: auto;
+    cursor: default;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.home-slide[data-pos="-1"],
+.home-slide[data-pos="1"] {
+    z-index: 2;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.home-slide[data-pos="-1"] {
+    transform: translate(-50%, -50%) translateX(calc(var(--x1) * -1)) scale(0.88);
+}
+
+.home-slide[data-pos="1"] {
+    transform: translate(-50%, -50%) translateX(var(--x1)) scale(0.88);
+}
+
+.home-slide[data-pos="-2"],
+.home-slide[data-pos="2"] {
+    z-index: 1;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.home-slide[data-pos="-2"] {
+    transform: translate(-50%, -50%) translateX(calc(var(--x2) * -1)) scale(0.7);
+}
+
+.home-slide[data-pos="2"] {
+    transform: translate(-50%, -50%) translateX(var(--x2)) scale(0.7);
+}
+
+.home-carousel-nav {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin: 18px 0 26px;
+}
+
+.home-carousel-nav button {
+    width: 34px;
+    height: 34px;
+    padding: 0;
+
+    background: #fff;
+    color: #111;
+    border: 1px solid #111;
+    border-radius: 50%;
+
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.home-carousel-nav button:hover {
+    background: #e31b23;
+    border-color: #e31b23;
+    color: #fff;
+}
+
+
+/* =========================================================
+   TENTANG KAMI
+========================================================= */
+
+.home-about {
+    padding: 52px 0 64px;
+    background: #fff;
+    border-top: 1px solid #ececec;
+}
+
+.home-about p {
+    max-width: 860px;
+    margin: 22px 0 0 46px;
+
+    color: #111;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    line-height: 2;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.home-cta {
+    display: flex;
+    align-items: center;
+
+    min-height: 150px;
+    padding: 44px 0;
+
+    background: #0d0f12;
+    background-image: linear-gradient(180deg, #111317 0%, #0a0b0d 100%);
+}
+
+.home-cta-content {
+    width: min(1133px, 90%);
+    margin: 0 auto;
+    color: #fff;
+    text-align: left;
+}
+
+.home-cta-eyebrow {
+    margin: 0 0 12px;
+    color: #fff;
+    font-size: clamp(24px, 2.6vw, 32px);
+    font-weight: 900;
+    line-height: 1.15;
+    text-transform: uppercase;
+}
+
+.home-cta-content h2 {
+    margin: 0 0 12px;
+
+    color: #fff;
+    font-size: clamp(24px, 2.6vw, 32px);
+    font-weight: 900;
+    line-height: 1.15;
+    text-transform: uppercase;
+}
+
+.home-cta-content p {
+    margin: 0 0 20px;
+    color: #eee;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.home-cta-content a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 40px;
+    padding: 0 16px;
+
+    background: #e31b23;
+    color: #fff;
+    border-radius: 2px;
+
+    font-size: 11px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.home-cta-content a:hover {
+    background: #c9151c;
+}
+
+/* CTA menempel langsung ke footer */
+body:has(.home-hero) .site-footer {
+    margin-top: 0 !important;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1024px) {
+    .home-features-inner {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 18px;
+    }
+
+    .home-feature:nth-child(3) {
+        border-left: 0;
+    }
+
+    .home-carousel {
+        --w: 250px;
+        --h: 370px;
+        --x1: 195px;
+        --x2: 340px;
+    }
+}
+
+@media (max-width: 900px) {
+    .home-hero {
+        min-height: 420px;
+    }
+
+    .home-services {
+        padding: 48px 0 48px;
+    }
+
+    .home-services-head p {
+        font-size: 16px;
+    }
+
+    .home-gallery {
+        padding: 44px 0 48px;
+    }
+
+    .home-about {
+        padding: 44px 0 52px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+    .home-hero {
+        min-height: 480px;
+    }
+
+    .home-hero-bg {
+        object-position: 70% center;
+    }
+
+    /* gelapkan sedikit agar teks tetap terbaca di atas foto */
+    .home-hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.25) 100%);
+    }
+
+    .home-hero-content {
+        width: 90%;
+        padding: 36px 0;
+    }
+
+    .home-hero h1 {
+        font-size: 17px;
+    }
+
+    .home-hero-text {
+        max-width: 300px;
+        font-size: 12px;
+    }
+
+    .home-features-inner {
+        grid-template-columns: 1fr;
+        padding: 20px 0;
+    }
+
+    .home-feature,
+    .home-feature:nth-child(3) {
+        padding: 12px 8px;
+        border-left: 0;
+    }
+
+    .home-services {
+        padding: 40px 0;
+    }
+
+    .home-services-head {
+        margin-bottom: 30px;
+    }
+
+    .home-services-head h3 {
+        font-size: 18px;
+    }
+
+    .home-services-head p {
+        font-size: 14px;
+    }
+
+    .home-cards {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-bottom: 32px;
+    }
+
+    .home-card-body {
+        min-height: 0;
+    }
+
+    .home-card-body h4,
+    .home-card-body p {
+        font-size: 14px;
+    }
+
+    .home-gallery-sub {
+        margin-left: 46px;
+        font-size: 12px;
+    }
+
+    .home-carousel {
+        --w: 190px;
+        --h: 290px;
+        --x1: 135px;
+        --x2: 235px;
+    }
+
+    .home-about p {
+        margin-left: 0;
+        font-size: 14px;
+        line-height: 1.9;
+    }
+
+    .home-cta {
+        padding: 32px 0;
+    }
+
+    .home-cta-content h2 {
+        font-size: 20px;
+    }
+
+    .home-cta-content p {
+        font-size: 10px;
+    }
+
+    .home-cta-content a {
+        min-height: 36px;
+        font-size: 10px;
+    }
+}
+
+
+/* =========================================================
+   EFEK CARD LAYANAN (menonjol saat hover / klik / fokus)
+========================================================= */
+
+.home-card {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.home-card-media {
+    overflow: hidden;
+}
+
+.home-card-media img {
+    transition: transform 0.45s ease;
+}
+
+.home-card:hover,
+.home-card:focus-visible,
+.home-card:active {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 34px rgba(0, 0, 0, 0.2);
+}
+
+.home-card:hover .home-card-media img,
+.home-card:focus-visible .home-card-media img {
+    transform: scale(1.06);
+}
+
+.home-card:focus-visible {
+    outline: 3px solid #e31b23;
+    outline-offset: 3px;
+}
+
+.home-card:active {
+    transform: translateY(-3px);
+}
+
+
+/* =========================================
+   CTA BERANDA — FULL BLACK TANPA GAMBAR
+========================================= */
+
+.home-cta {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 150px;
+    padding: 44px 0;
+    box-sizing: border-box;
+
+    background: #000000 !important;
+    background-color: #000000 !important;
+    background-image: none !important;
+
+    overflow: hidden;
+}
+
+/* Hilangkan dekorasi gambar di dalam CTA */
+.home-cta::before,
+.home-cta::after,
+.home-cta-content::before,
+.home-cta-content::after {
+    content: none !important;
+    display: none !important;
+    background: none !important;
+    background-image: none !important;
+}
+
+/* Pastikan isi CTA tetap terlihat */
+.home-cta .home-cta-content {
+    position: relative;
+    z-index: 1;
+    color: #ffffff !important;
+}
+
+.home-cta .home-cta-eyebrow,
+.home-cta .home-cta-content h2 {
+    color: #ffffff !important;
+}
+
+.home-cta .home-cta-content p {
+    color: #e5e5e5 !important;
+}
+
+/* Tombol CTA tetap merah */
+.home-cta .home-cta-content a {
+    background: #e50920 !important;
+    background-image: none !important;
+    color: #ffffff !important;
+}
+
+.home-cta .home-cta-content a:hover {
+    background: #bd0018 !important;
+}

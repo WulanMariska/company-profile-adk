@@ -1,0 +1,569 @@
+
+/* =========================================================
+   TENTANGKAMI.CSS - Halaman Tentang Kami
+   PT. ARI DHARMA KANTI
+   Navbar & footer ada di layouts/app.blade.php
+========================================================= */
+
+:root {
+    --about-red: #e31b23;
+    --about-pink: #fbeceb;
+    --about-serif: 'Lora', Georgia, 'Times New Roman', serif;
+    --about-title: 'Michroma', 'Arial Black', Arial, sans-serif;
+    --about-black: 'Archivo Black', 'Arial Black', Arial, sans-serif;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.about-hero {
+    position: relative;
+    min-height: clamp(300px, 36vw, 480px);
+    display: flex;
+    align-items: center;
+    background-color: #000;
+    background-size: cover;
+    background-position: center right;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+/* Overlay gelap agar teks terbaca */
+.about-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.84) 0%,
+        rgba(0, 0, 0, 0.58) 38%,
+        rgba(0, 0, 0, 0) 68%
+    );
+    pointer-events: none;
+}
+
+.about-hero-content {
+    position: relative;
+    z-index: 1;
+    width: min(1100px, 90%);
+    margin: 0 auto;
+    padding: clamp(32px, 5vw, 52px) 0;
+}
+
+.about-hero-label {
+    margin: 0 0 16px;
+    color: #fff;
+    font-family: var(--about-serif);
+    font-size: 11px;
+    line-height: 1.6;
+    letter-spacing: 0.2px;
+}
+
+/* Aturan utama judul hero */
+.about-hero h1,
+.about-hero-title {
+    margin: 0;
+    max-width: 700px;
+    font-family: var(--about-black);
+    font-size: clamp(34px, 4.5vw, 58px);
+    line-height: 1.16;
+    font-weight: 400;
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+
+/* Judul putih */
+.about-hero-title .about-title-white {
+    color: #fff;
+}
+
+/* Judul merah */
+.about-hero-title .about-title-red {
+    display: block;
+    color: var(--about-red);
+}
+
+/* Tetap mendukung span merah pada judul lama */
+.about-hero h1:not(.about-hero-title) span {
+    color: var(--about-red);
+}
+
+.about-hero-text {
+    max-width: 380px;
+    margin: 18px 0 0;
+    color: #fff;
+    font-family: var(--about-serif);
+    font-size: clamp(12px, 1.2vw, 14px);
+    line-height: 1.75;
+    overflow-wrap: break-word;
+}
+
+/* =========================================================
+   ISI HALAMAN
+========================================================= */
+
+.about-page {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+    padding: clamp(36px, 5vw, 64px) 0
+             clamp(44px, 6vw, 80px);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(34px, 5vw, 56px);
+}
+
+/* Judul section */
+.about-label {
+    margin: 0 0 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    color: var(--about-red);
+    font-family: var(--about-serif);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    line-height: 1.5;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.about-label i {
+    display: block;
+    flex: 0 0 34px;
+    height: 3px;
+    background: var(--about-red);
+}
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.about-card {
+    background: var(--about-pink);
+    border-radius: 8px;
+    outline: none;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease;
+}
+
+.about-card:hover,
+.about-card:focus,
+.about-card:focus-within {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 38px rgba(0, 0, 0, 0.14);
+    background: #fde4e2;
+}
+
+.about-card:active {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+}
+
+.about-card:focus-visible {
+    box-shadow:
+        0 18px 38px rgba(0, 0, 0, 0.14),
+        0 0 0 2px var(--about-red);
+}
+
+/* =========================================================
+   PROFILE PERUSAHAAN
+========================================================= */
+
+.about-profile {
+    padding: clamp(24px, 4vw, 44px);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(24px, 4vw, 48px);
+}
+
+.about-profile-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+}
+
+.about-profile-logo img {
+    display: block;
+    width: min(100%, 400px);
+    height: auto;
+    object-fit: contain;
+}
+
+.about-profile-text {
+    min-width: 0;
+}
+
+.about-profile-text h3,
+.about-commit-text h3 {
+    color: #111;
+    font-family: var(--about-serif);
+    font-weight: 700;
+    line-height: 1.4;
+    overflow-wrap: break-word;
+}
+
+.about-profile-text h3 {
+    margin: 0 0 18px;
+    font-size: clamp(18px, 2vw, 22px);
+    text-align: center;
+}
+
+/* Teks profil biasa dan isi dari editor CMS */
+.about-profile-text p,
+.about-profile-description p,
+.about-commit-text p {
+    color: #111;
+    font-family: var(--about-serif);
+    font-size: clamp(12px, 1.15vw, 13px);
+    line-height: 1.8;
+    text-align: justify;
+    overflow-wrap: break-word;
+}
+
+.about-profile-text p,
+.about-profile-description p {
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.about-profile-description > *:first-child {
+    margin-top: 0;
+}
+
+.about-profile-description > *:last-child {
+    margin-bottom: 0;
+}
+
+.about-profile-description ul,
+.about-profile-description ol {
+    padding-left: 22px;
+    margin-top: 8px;
+    margin-bottom: 12px;
+}
+
+.about-profile-description li {
+    margin-bottom: 5px;
+}
+
+.about-profile-description strong,
+.about-profile-description b {
+    font-weight: 700;
+}
+
+.about-profile-description em,
+.about-profile-description i {
+    font-style: italic;
+}
+
+/* =========================================================
+   VISI & MISI
+========================================================= */
+
+.about-visi {
+    min-height: clamp(180px, 25vw, 270px);
+    padding: clamp(24px, 4vw, 44px);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(24px, 3vw, 32px);
+    align-items: start;
+}
+
+.about-visi-item,
+.about-misi-item {
+    min-width: 0;
+}
+
+.about-visi-item h3,
+.about-misi-item h3 {
+    margin: 0 0 14px;
+    color: #111;
+    font-family: var(--about-serif);
+    font-size: clamp(18px, 2vw, 22px);
+    font-weight: 700;
+    line-height: 1.4;
+    overflow-wrap: break-word;
+}
+
+.about-visi-content,
+.about-misi-content {
+    color: #111;
+    font-family: var(--about-serif);
+    font-size: clamp(12px, 1.15vw, 13px);
+    line-height: 1.8;
+    overflow-wrap: break-word;
+}
+
+.about-visi-content p,
+.about-misi-content p {
+    margin: 0 0 10px;
+}
+
+/* =========================================================
+   KOMITMEN KAMI
+========================================================= */
+
+.about-commit {
+    padding: clamp(24px, 3.4vw, 40px);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(24px, 4vw, 48px);
+}
+
+.about-commit-img {
+    min-width: 0;
+}
+
+.about-commit-img img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.about-commit-text {
+    min-width: 0;
+}
+
+.about-commit-text h3 {
+    margin: 0 0 18px;
+    font-size: clamp(20px, 2.2vw, 26px);
+}
+
+.about-commit-text p {
+    margin: 0;
+}
+
+/* =========================================================
+   CTA - TENTANG KAMI
+========================================================= */
+
+.about-cta {
+    position: relative;
+    padding: clamp(44px, 6vw, 70px) 0;
+    background-color: #000;
+    background-image: none;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.about-cta::before {
+    content: none;
+}
+
+.about-cta-content {
+    position: relative;
+    z-index: 1;
+    width: min(1133px, 90%);
+    margin: 0 auto;
+}
+
+.about-cta h2 {
+    max-width: 640px;
+    margin: 0 0 14px;
+    color: #fff;
+    font-family: var(--about-black);
+    font-size: clamp(22px, 3.6vw, 38px);
+    font-weight: 400;
+    line-height: 1.2;
+    overflow-wrap: break-word;
+}
+
+.about-cta p {
+    margin: 0 0 26px;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.about-cta a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 22px;
+    background: var(--about-red);
+    color: #fff;
+    border-radius: 2px;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.about-cta a:hover {
+    background: #c9151c;
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 860px) {
+    .about-profile,
+    .about-commit {
+        grid-template-columns: 1fr;
+    }
+
+    .about-profile-logo img {
+        width: min(100%, 320px);
+    }
+
+    .about-hero {
+        background-position: 70% center;
+    }
+
+    .about-hero::before {
+        background: linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.86) 0%,
+            rgba(0, 0, 0, 0.62) 60%,
+            rgba(0, 0, 0, 0.25) 100%
+        );
+    }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+    .about-card.about-visi {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-hero {
+        min-height: 300px;
+        background-position: 68% center;
+    }
+
+    .about-hero-content {
+        width: 90%;
+        padding: 32px 0;
+    }
+
+    .about-hero-label {
+        margin-bottom: 12px;
+        font-size: 10px;
+    }
+
+    .about-hero h1,
+    .about-hero-title {
+        max-width: 100%;
+        font-size: clamp(32px, 9vw, 44px);
+        line-height: 1.2;
+    }
+
+    .about-hero-text {
+        max-width: 300px;
+        margin-top: 14px;
+        font-size: 12px;
+        line-height: 1.7;
+    }
+
+    .about-page {
+        width: 92%;
+        padding: 36px 0 48px;
+        gap: 34px;
+    }
+
+    .about-label {
+        gap: 10px;
+        margin-bottom: 16px;
+        font-size: 12px;
+    }
+
+    .about-label i {
+        flex-basis: 24px;
+        height: 2px;
+    }
+
+    .about-profile,
+    .about-visi,
+    .about-commit {
+        padding: 22px;
+    }
+
+    .about-profile-logo img {
+        width: min(100%, 280px);
+    }
+
+    .about-profile-text h3 {
+        margin-bottom: 14px;
+        font-size: 19px;
+    }
+
+    .about-profile-text p,
+    .about-profile-description p,
+    .about-commit-text p,
+    .about-visi-content,
+    .about-misi-content {
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+    .about-visi-item h3,
+    .about-misi-item h3 {
+        margin-bottom: 10px;
+        font-size: 19px;
+    }
+
+    .about-commit-text h3 {
+        margin-bottom: 14px;
+        font-size: 21px;
+    }
+
+    .about-cta {
+        padding: 44px 0;
+    }
+
+    .about-cta-content {
+        width: 90%;
+    }
+
+    .about-cta h2 {
+        font-size: clamp(22px, 6vw, 30px);
+        line-height: 1.25;
+    }
+
+    .about-cta p {
+        margin-bottom: 22px;
+        font-size: 13px;
+    }
+
+    .about-card:hover,
+    .about-card:focus,
+    .about-card:focus-within {
+        transform: translateY(-3px);
+    }
+}
+
+/* Kurangi animasi jika pengguna memilih reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .about-card,
+    .about-cta a {
+        transition: none;
+    }
+
+    .about-card:hover,
+    .about-card:focus,
+    .about-card:focus-within,
+    .about-card:active,
+    .about-cta a:hover {
+        transform: none;
+    }
+}

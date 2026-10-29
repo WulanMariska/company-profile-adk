@@ -1,0 +1,96 @@
+
+/* CTA GLOBAL PT. ARI DHARMA KANTI */
+
+.home-cta {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 150px;
+    padding: 44px 0;
+    box-sizing: border-box;
+    background: #000000 !important;
+    background-color: #000000 !important;
+    background-image: none !important;
+    overflow: hidden;
+}
+
+.home-cta *,
+.home-cta *::before,
+.home-cta *::after {
+    box-sizing: border-box;
+}
+
+.home-cta::before,
+.home-cta::after,
+.home-cta-content::before,
+.home-cta-content::after {
+    content: none !important;
+    display: none !important;
+    background: none !important;
+    background-image: none !important;
+}
+
+.home-cta .home-cta-content {
+    position: relative;
+    z-index: 1;
+    width: min(1133px, 90%);
+    margin: 0 auto;
+    color: #ffffff !important;
+    text-align: left;
+}
+
+.home-cta .home-cta-eyebrow,
+.home-cta .home-cta-content h2 {
+    margin: 0 0 12px;
+    color: #ffffff !important;
+    font-size: clamp(24px, 2.6vw, 32px);
+    font-weight: 900;
+    line-height: 1.15;
+    text-transform: uppercase;
+}
+
+.home-cta .home-cta-content p {
+    margin: 0 0 20px;
+    color: #e5e5e5 !important;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.home-cta .home-cta-content a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 0 16px;
+    background: #e50920 !important;
+    background-image: none !important;
+    color: #ffffff !important;
+    border-radius: 2px;
+    font-size: 11px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.home-cta .home-cta-content a:hover {
+    background: #bd0018 !important;
+}
+
+@media (max-width: 600px) {
+    .home-cta {
+        padding: 32px 0;
+    }
+
+    .home-cta .home-cta-content h2 {
+        font-size: 20px;
+    }
+
+    .home-cta .home-cta-content p {
+        font-size: 10px;
+    }
+
+    .home-cta .home-cta-content a {
+        min-height: 36px;
+        font-size: 10px;
+    }
+}

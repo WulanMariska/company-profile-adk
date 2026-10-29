@@ -1,0 +1,719 @@
+/* =========================================================
+   GLOBAL GALERI
+========================================================= */
+
+.gallery-hero,
+.gallery-section,
+.gallery-cta {
+    width: 100%;
+}
+
+.gallery-hero *,
+.gallery-section *,
+.gallery-cta * {
+    box-sizing: border-box;
+}
+
+/* Cegah scroll horizontal akibat teknik full-bleed (100vw) */
+body:has(.gallery-hero) {
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   HERO GALERI - SESUAI FIGMA
+========================================================= */
+
+.gallery-hero {
+    position: relative;
+    width: 100%;
+    min-height: 350px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-image: url("/assets/css/images-galeri/hero-galeri.png");
+    background-size: cover;
+    background-position: center 43%;
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+}
+
+.gallery-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.43);
+    z-index: 1;
+}
+
+.gallery-hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: min(1120px, 90%);
+    margin: 0 auto;
+    padding-top: 65px;
+
+    text-align: center;
+}
+
+.gallery-hero-content h1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+
+    margin: 0;
+
+    color: #000;
+    font-size: clamp(42px, 5vw, 60px);
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+/* "Galeri" sedikit bergeser ke kanan */
+.gallery-hero-content h1 span:first-child {
+    margin-left: 3vw;
+}
+
+/* Tulisan "Dokumentasi produk dan layanan..." disembunyikan.
+   padding-bottom menjaga posisi judul tetap sama seperti sebelumnya. */
+.gallery-hero-content {
+    padding-bottom: 83px;
+}
+
+.gallery-hero-content p {
+    display: none;
+}
+
+
+/* =========================================================
+   GALLERY GRID
+========================================================= */
+
+.gallery-section {
+    padding: 48px 0 52px;
+    background: #fff;
+}
+
+.gallery-grid {
+    width: min(1240px, 94%);
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.gallery-item {
+    position: relative;
+    isolation: isolate;
+
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    padding: 0;
+    border: 0;
+    border-radius: 14px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    background: #eee;
+    cursor: zoom-in;
+    text-align: left;
+
+    transform: translateY(0);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.gallery-item img {
+    position: relative;
+    z-index: 0;
+
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:focus-visible {
+    outline: 3px solid #e31b23;
+    outline-offset: 3px;
+}
+
+/* Overlay judul dan deskripsi */
+.gallery-item-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+
+    padding: 20px;
+    text-align: left;
+    color: #fff;
+
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.92) 0%,
+        rgba(0, 0, 0, 0.6) 50%,
+        rgba(0, 0, 0, 0) 100%
+    );
+
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item-title {
+    display: block;
+    margin-bottom: 6px;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.gallery-item-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    color: #f5f5f5;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* Foto terangkat saat diarahkan kursor */
+.gallery-item:hover,
+.gallery-item:focus-visible {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.22);
+}
+
+.gallery-item:hover img,
+.gallery-item:focus-visible img {
+    transform: scale(1.06);
+}
+
+.gallery-item:hover .gallery-item-overlay,
+.gallery-item:focus-visible .gallery-item-overlay {
+    opacity: 1;
+}
+
+/* Layar sentuh: tampilkan deskripsi karena tidak ada hover */
+@media (hover: none) {
+    .gallery-item-overlay {
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   LIGHTBOX
+========================================================= */
+
+.gallery-no-scroll {
+    overflow: hidden;
+}
+
+.gallery-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 70px 80px 55px;
+    background: rgba(0, 0, 0, 0.92);
+}
+
+.gallery-lightbox.is-open {
+    display: flex;
+}
+
+.gallery-lightbox > img {
+    display: block;
+    max-width: 100%;
+    max-height: calc(100vh - 130px);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 5px;
+    box-shadow: 0 8px 35px rgba(0, 0, 0, 0.35);
+}
+
+.gallery-lightbox-close {
+    position: absolute;
+    top: 18px;
+    right: 26px;
+
+    width: 44px;
+    height: 44px;
+
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+
+    font-size: 34px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.gallery-lightbox-close:hover {
+    background: #e31b23;
+}
+
+.gallery-lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 44px;
+    height: 54px;
+
+    border: 0;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.13);
+    color: #fff;
+
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.gallery-lightbox-nav:hover {
+    background: #e31b23;
+}
+
+.gallery-lightbox-prev {
+    left: 20px;
+}
+
+.gallery-lightbox-next {
+    right: 20px;
+}
+
+.gallery-lightbox-counter {
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    right: 0;
+    margin: 0;
+    color: #fff;
+    text-align: center;
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   CTA GALERI - SAMA SEPERTI CTA BERANDA (FULL WIDTH)
+   (menggantikan 4 blok CTA lama yang saling menimpa)
+========================================================= */
+
+.gallery-cta {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 0 0 100%;
+    align-self: stretch;
+    float: none;
+    clear: both;
+
+    /* Jika CTA berada di dalam .gallery-grid, bentang semua kolom */
+    grid-column: 1 / -1;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 44px 0;
+    min-height: 150px;
+
+    background-color: #0d0f12;
+    background-image: none;
+
+    /* Warna latar diperluas ke kiri & kanan sampai tepi layar,
+       tanpa menggeser posisi isi, di mana pun induknya berada */
+    box-shadow: 0 0 0 100vmax #0d0f12;
+    clip-path: inset(0 -100vmax);
+}
+
+/* Overlay tidak lagi dipakai sebagai warna; dibiarkan transparan */
+.gallery-cta-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: transparent;
+    pointer-events: none;
+}
+
+.gallery-cta-content {
+    position: relative;
+    z-index: 1;
+
+    /* Sejajar dengan tepi kiri logo footer */
+    width: min(1133px, 90%);
+    max-width: none;
+    margin: 0 auto;
+    padding: 0;
+
+    color: #fff;
+    text-align: left;
+}
+
+/* Hilangkan celah putih antara CTA dan footer */
+.gallery-section:has(.gallery-cta) {
+    padding-bottom: 0;
+}
+
+body:has(.gallery-hero) .site-footer {
+    margin-top: 0 !important;
+}
+
+/* Teks kecil di atas judul: "SIAP BEKERJA SAMA DENGAN" */
+.gallery-cta-eyebrow {
+    display: block;
+    margin: 0 0 6px;
+
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+.gallery-cta-content h2 {
+    max-width: none;
+    margin: 0 0 12px;
+
+    color: #fff;
+    font-size: clamp(24px, 2.6vw, 32px);
+    font-weight: 900;
+    line-height: 1.15;
+    text-transform: uppercase;
+}
+
+.gallery-cta-content p {
+    margin: 0 0 20px;
+
+    color: #eee;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.gallery-cta-content a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 40px;
+    padding: 0 16px;
+
+    background: #e31b23;
+    color: #fff;
+    border-radius: 2px;
+
+    font-size: 11px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.gallery-cta-content a:hover {
+    background: #c9151c;
+}
+
+
+/* =========================================================
+   INFO KUNJUNGAN (setelah card, sebelum CTA/footer)
+========================================================= */
+
+.gallery-visit {
+    width: 100%;
+    padding: 72px 0;
+    background: #fafafa;
+    border-top: 1px solid #eee;
+    text-align: center;
+}
+
+.gallery-visit-inner {
+    width: min(860px, 90%);
+    margin: 0 auto;
+}
+
+.gallery-visit h2 {
+    margin: 0 0 14px;
+    color: #0b0b0f;
+    font-size: clamp(20px, 2.4vw, 26px);
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.gallery-visit p {
+    margin: 0 0 28px;
+    color: #5b6470;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.gallery-visit a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 46px;
+    padding: 0 28px;
+
+    background: #e8391f;
+    color: #fff;
+    border-radius: 12px;
+
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.gallery-visit a:hover {
+    background: #c9301a;
+}
+
+
+/* =========================================================
+   FOOTER - FULL BLACK
+========================================================= */
+
+.site-footer {
+    position: relative;
+    display: block;
+    clear: both;
+
+    width: 100%;
+    margin: 0;
+
+    background: #050505 !important;
+    background-image: none !important;
+
+    color: #fff;
+    overflow: hidden;
+}
+
+.site-footer::before,
+.site-footer::after {
+    background-image: none !important;
+}
+
+
+/* =========================================================
+   NAVBAR TRANSPARAN DI ATAS HERO GALERI
+========================================================= */
+
+body:has(.gallery-hero) .site-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    z-index: 1000;
+
+    background: transparent !important;
+    background-image: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
+body:has(.gallery-hero) .navbar {
+    background: transparent !important;
+}
+
+body:has(.gallery-hero) .nav-menu a {
+    color: #111;
+}
+
+body:has(.gallery-hero) .nav-menu a.active {
+    color: #e31b23;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width: 601px) and (max-width: 1100px) {
+    .gallery-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+    .gallery-hero {
+        min-height: 310px;
+    }
+
+    .gallery-hero-content h1 {
+        font-size: clamp(36px, 5vw, 48px);
+    }
+
+    .gallery-hero-content {
+        padding-bottom: 68px;
+    }
+
+    .gallery-section {
+        padding: 36px 0 42px;
+    }
+
+    .gallery-grid {
+        gap: 16px;
+    }
+
+    .gallery-item-overlay {
+        padding: 14px;
+    }
+
+    .gallery-item-title {
+        font-size: 15px;
+    }
+
+    .gallery-item-description {
+        font-size: 12px;
+        -webkit-line-clamp: 2;
+    }
+
+    .gallery-visit {
+        padding: 56px 0;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+    .gallery-hero {
+        min-height: 260px;
+        background-position: center;
+    }
+
+    .gallery-hero-content {
+        width: 90%;
+        padding-top: 55px;
+    }
+
+    .gallery-hero-content h1 {
+        gap: 12px;
+        font-size: clamp(25px, 7vw, 36px);
+    }
+
+    .gallery-hero-content {
+        padding-bottom: 59px;
+    }
+
+    .gallery-hero-content h1 span:first-child {
+        margin-left: 2vw;
+    }
+
+    .gallery-section {
+        padding: 24px 0 32px;
+    }
+
+    .gallery-grid {
+        width: 92%;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .gallery-item {
+        border-radius: 10px;
+    }
+
+    .gallery-item-overlay {
+        padding: 10px;
+    }
+
+    .gallery-item-title {
+        font-size: 12px;
+        margin-bottom: 4px;
+    }
+
+    .gallery-item-description {
+        font-size: 10px;
+        line-height: 1.35;
+        -webkit-line-clamp: 2;
+    }
+
+    .gallery-visit {
+        padding: 44px 0;
+    }
+
+    .gallery-visit p {
+        font-size: 13px;
+    }
+
+    .gallery-visit a {
+        min-height: 42px;
+        font-size: 14px;
+    }
+
+    .gallery-lightbox {
+        padding: 65px 15px 55px;
+    }
+
+    .gallery-lightbox > img {
+        max-height: calc(100vh - 140px);
+    }
+
+    .gallery-lightbox-close {
+        top: 12px;
+        right: 12px;
+    }
+
+    .gallery-lightbox-prev {
+        left: 8px;
+    }
+
+    .gallery-lightbox-next {
+        right: 8px;
+    }
+
+    .gallery-lightbox-nav {
+        width: 35px;
+        height: 45px;
+        font-size: 20px;
+    }
+
+    .gallery-cta {
+        min-height: 150px;
+        padding: 32px 0;
+    }
+
+    .gallery-cta-content h2 {
+        font-size: 20px;
+    }
+
+    .gallery-cta-content p {
+        font-size: 10px;
+    }
+
+    .gallery-cta-content a {
+        min-height: 36px;
+        font-size: 10px;
+    }
+
+    body:has(.gallery-hero) .nav-menu {
+        background: #fff;
+    }
+}

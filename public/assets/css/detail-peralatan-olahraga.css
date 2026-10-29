@@ -1,0 +1,1641 @@
+/* =========================================================
+
+   DETAIL PERALATAN & PERLENGKAPAN OLAHRAGA
+
+========================================================= */
+
+
+
+
+
+/* =========================================================
+
+   HERO
+
+========================================================= */
+
+
+
+.sports-detail-hero {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 185px;
+
+
+
+    background-image: url("/assets/css/images-peralatan-olahraga/peralatan-olahraga.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+
+
+    display: flex;
+
+    align-items: center;
+
+
+
+    overflow: hidden;
+
+}
+
+
+
+.sports-detail-hero-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+
+
+    background: rgba(0, 0, 0, 0.48);
+
+}
+
+
+
+.sports-detail-hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+
+
+    width: min(1100px, 92%);
+
+    margin: 0 auto;
+
+
+
+    color: #fff;
+
+}
+
+
+
+.sports-detail-hero-content h1 {
+
+    margin: 0 0 12px;
+
+
+
+    font-size: 28px;
+
+    line-height: 1.15;
+
+    font-weight: 800;
+
+}
+
+
+
+.sports-detail-hero-content p {
+
+    max-width: 470px;
+
+
+
+    margin: 0 0 16px;
+
+
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+
+
+    color: #fff;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   BUTTON KEMBALI
+
+========================================================= */
+
+
+
+.sports-back-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+
+
+    padding: 10px 16px;
+
+
+
+    background: #e31b23;
+
+    color: #fff;
+
+
+
+    border-radius: 5px;
+
+
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+
+
+    text-decoration: none;
+
+
+
+    transition: 0.2s ease;
+
+}
+
+
+
+.sports-back-button:hover {
+
+    background: #c9141b;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   MAIN
+
+========================================================= */
+
+
+
+.sports-detail-main {
+
+    width: 100%;
+
+    background: #fff;
+
+}
+
+
+
+.sports-detail-container {
+
+    width: min(1100px, 92%);
+
+    margin: 0 auto;
+
+
+
+    padding: 48px 0 58px;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   DETAIL LAYOUT
+
+========================================================= */
+
+
+
+.sports-detail-layout {
+
+    display: grid;
+
+
+
+    grid-template-columns:
+
+        minmax(0, 1fr)
+
+        300px;
+
+
+
+    gap: 30px;
+
+
+
+    align-items: start;
+
+}
+
+
+
+.sports-detail-left {
+
+    min-width: 0;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   IMAGE
+
+========================================================= */
+
+
+
+.sports-detail-image {
+
+    width: 100%;
+
+
+
+    overflow: hidden;
+
+
+
+    border-radius: 7px;
+
+}
+
+
+
+.sports-detail-image img {
+
+    display: block;
+
+
+
+    width: 100%;
+
+    height: 400px;
+
+
+
+    object-fit: cover;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   SIDEBAR
+
+   STICKY DESKTOP
+
+========================================================= */
+
+
+
+.sports-detail-sidebar {
+
+    position: sticky;
+
+    top: 90px;
+
+
+
+    align-self: start;
+
+
+
+    display: flex;
+
+    flex-direction: column;
+
+
+
+    gap: 16px;
+
+
+
+    width: 100%;
+
+
+
+    z-index: 10;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   CONSULTATION CARD
+
+========================================================= */
+
+
+
+.sports-consultation-card {
+
+    background: #fff0f0;
+
+
+
+    border-radius: 7px;
+
+
+
+    padding: 22px 20px;
+
+
+
+    box-sizing: border-box;
+
+}
+
+
+
+.sports-consultation-label {
+
+    display: block;
+
+
+
+    margin-bottom: 9px;
+
+
+
+    color: #e31b23;
+
+
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+
+
+    letter-spacing: 0.8px;
+
+}
+
+
+
+.sports-consultation-card h3 {
+
+    margin: 0 0 10px;
+
+
+
+    color: #222;
+
+
+
+    font-size: 18px;
+
+    line-height: 1.25;
+
+    font-weight: 700;
+
+}
+
+
+
+.sports-consultation-card > p {
+
+    margin: 0 0 16px;
+
+
+
+    color: #555;
+
+
+
+    font-size: 10px;
+
+    line-height: 1.6;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   CONSULTATION BUTTON
+
+========================================================= */
+
+
+
+.sports-consultation-primary,
+
+.sports-consultation-secondary {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+
+
+    width: 100%;
+
+    min-height: 35px;
+
+
+
+    box-sizing: border-box;
+
+
+
+    border-radius: 5px;
+
+
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+
+
+    text-decoration: none;
+
+
+
+    transition: 0.2s ease;
+
+}
+
+
+
+.sports-consultation-primary {
+
+    margin-bottom: 7px;
+
+
+
+    background: #e31b23;
+
+    color: #fff;
+
+}
+
+
+
+.sports-consultation-primary:hover {
+
+    background: #c9141b;
+
+}
+
+
+
+.sports-consultation-secondary {
+
+    background: #fff;
+
+
+
+    border: 1px solid #ddd;
+
+
+
+    color: #222;
+
+}
+
+
+
+.sports-consultation-secondary:hover {
+
+    border-color: #e31b23;
+
+
+
+    color: #e31b23;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   CONSULTATION INFO
+
+========================================================= */
+
+
+
+.sports-consultation-info {
+
+    display: flex;
+
+    align-items: center;
+
+
+
+    gap: 8px;
+
+
+
+    margin-top: 13px;
+
+}
+
+
+
+.sports-consultation-info img {
+
+    flex-shrink: 0;
+
+
+
+    width: 16px;
+
+    height: 16px;
+
+
+
+    object-fit: contain;
+
+}
+
+
+
+.sports-consultation-info span {
+
+    color: #555;
+
+
+
+    font-size: 8.5px;
+
+    line-height: 1.5;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   OFFICE CARD
+
+========================================================= */
+
+
+
+.sports-office-card {
+
+    background: #050505;
+
+
+
+    color: #fff;
+
+
+
+    border-radius: 6px;
+
+
+
+    padding: 20px 19px;
+
+
+
+    box-sizing: border-box;
+
+}
+
+
+
+.sports-office-card h3 {
+
+    margin: 0 0 9px;
+
+
+
+    font-size: 15px;
+
+    line-height: 1.3;
+
+    font-weight: 700;
+
+}
+
+
+
+.sports-office-card p {
+
+    margin: 0 0 10px;
+
+
+
+    color: #ddd;
+
+
+
+    font-size: 9.5px;
+
+    line-height: 1.55;
+
+}
+
+
+
+.sports-office-card a {
+
+    color: #e31b23;
+
+
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+
+
+    text-decoration: none;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   DESCRIPTION
+
+========================================================= */
+
+
+
+.sports-detail-description {
+
+    margin-top: 42px;
+
+}
+
+
+
+.sports-detail-description h2 {
+
+    margin: 0 0 14px;
+
+
+
+    color: #111;
+
+
+
+    font-size: 24px;
+
+    line-height: 1.25;
+
+    font-weight: 600;
+
+}
+
+
+
+.sports-detail-description > p {
+
+    max-width: 760px;
+
+
+
+    margin: 0;
+
+
+
+    color: #555;
+
+
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   FEATURE CARDS
+
+========================================================= */
+
+
+
+.sports-detail-features {
+
+    display: grid;
+
+
+
+    grid-template-columns: repeat(2, 1fr);
+
+
+
+    gap: 15px;
+
+
+
+    width: 680px;
+
+    max-width: 100%;
+
+
+
+    margin-top: 24px;
+
+}
+
+
+
+.sports-feature-card {
+
+    min-height: 105px;
+
+
+
+    padding: 18px 20px;
+
+
+
+    box-sizing: border-box;
+
+
+
+    background: #eeeeee;
+
+
+
+    border-radius: 7px;
+
+}
+
+
+
+.sports-feature-card h3 {
+
+    display: flex;
+
+    align-items: center;
+
+
+
+    gap: 8px;
+
+
+
+    margin: 0 0 10px;
+
+
+
+    color: #222;
+
+
+
+    font-size: 13px;
+
+    line-height: 1.3;
+
+    font-weight: 700;
+
+}
+
+
+
+.sports-feature-card h3 span {
+
+    flex-shrink: 0;
+
+
+
+    width: 7px;
+
+    height: 7px;
+
+
+
+    background: #e31b23;
+
+
+
+    border-radius: 50%;
+
+}
+
+
+
+.sports-feature-card p {
+
+    margin: 0;
+
+
+
+    color: #555;
+
+
+
+    font-size: 11px;
+
+    line-height: 1.55;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   CTA
+
+========================================================= */
+
+
+
+.sports-detail-cta {
+
+    position: relative;
+
+
+
+    width: 100%;
+
+    min-height: 175px;
+
+
+
+    background-image:
+
+        url("/assets/css/images-peralatan-olahraga/footer.png");
+
+
+
+    background-size: cover;
+
+    background-position: center;
+
+
+
+    display: flex;
+
+    align-items: center;
+
+
+
+    overflow: hidden;
+
+}
+
+
+
+.sports-detail-cta-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+
+
+    background: rgba(0, 0, 0, 0.45);
+
+}
+
+
+
+.sports-detail-cta-content {
+
+    position: relative;
+
+    z-index: 2;
+
+
+
+    width: min(1100px, 92%);
+
+    margin: 0 auto;
+
+
+
+    color: #fff;
+
+}
+
+
+
+.sports-detail-cta-content h2 {
+
+    margin: 0 0 8px;
+
+
+
+    font-size: 24px;
+
+    line-height: 1.15;
+
+
+
+    font-weight: 800;
+
+}
+
+
+
+.sports-detail-cta-content p {
+
+    margin: 0 0 13px;
+
+
+
+    font-size: 9px;
+
+    line-height: 1.5;
+
+
+
+    color: #eee;
+
+}
+
+
+
+.sports-detail-cta-content a {
+
+    display: inline-flex;
+
+
+
+    padding: 9px 15px;
+
+
+
+    background: #e31b23;
+
+    color: #fff;
+
+
+
+    border-radius: 4px;
+
+
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+
+
+    text-decoration: none;
+
+
+
+    transition: 0.2s ease;
+
+}
+
+
+
+.sports-detail-cta-content a:hover {
+
+    background: #c9141b;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   TABLET
+
+========================================================= */
+
+
+
+@media (max-width: 900px) {
+
+
+
+    .sports-detail-layout {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+
+    .sports-detail-sidebar {
+
+        position: static;
+
+
+
+        display: grid;
+
+
+
+        grid-template-columns: 1fr 1fr;
+
+
+
+        gap: 18px;
+
+
+
+        width: 100%;
+
+    }
+
+
+
+    .sports-detail-image img {
+
+        height: 430px;
+
+    }
+
+
+
+    .sports-detail-features {
+
+        width: 100%;
+
+    }
+
+
+
+}
+
+
+
+
+
+/* =========================================================
+
+   MOBILE
+
+========================================================= */
+
+
+
+@media (max-width: 600px) {
+
+
+
+    .sports-detail-container {
+
+        width: 90%;
+
+
+
+        padding: 30px 0 45px;
+
+    }
+
+
+
+
+
+    /* HERO */
+
+
+
+    .sports-detail-hero {
+
+        min-height: 240px;
+
+    }
+
+
+
+    .sports-detail-hero-content {
+
+        width: 88%;
+
+    }
+
+
+
+    .sports-detail-hero-content h1 {
+
+        font-size: 20px;
+
+    }
+
+
+
+    .sports-detail-hero-content h1 br {
+
+        display: none;
+
+    }
+
+
+
+    .sports-detail-hero-content p {
+
+        font-size: 10px;
+
+    }
+
+
+
+    .sports-back-button {
+
+        padding: 9px 14px;
+
+
+
+        font-size: 11px;
+
+    }
+
+
+
+
+
+    /* LAYOUT */
+
+
+
+    .sports-detail-layout {
+
+        grid-template-columns: 1fr;
+
+
+
+        gap: 22px;
+
+    }
+
+
+
+
+
+    /* IMAGE */
+
+
+
+    .sports-detail-image img {
+
+        height: 280px;
+
+    }
+
+
+
+
+
+    /* SIDEBAR */
+
+
+
+    .sports-detail-sidebar {
+
+        position: static;
+
+
+
+        display: flex;
+
+        flex-direction: column;
+
+
+
+        gap: 14px;
+
+
+
+        width: 100%;
+
+    }
+
+
+
+
+
+    /* CONSULTATION */
+
+
+
+    .sports-consultation-card {
+
+        padding: 20px 18px;
+
+    }
+
+
+
+    .sports-consultation-card h3 {
+
+        font-size: 17px;
+
+    }
+
+
+
+    .sports-consultation-card > p {
+
+        font-size: 10px;
+
+    }
+
+
+
+    .sports-consultation-info span {
+
+        font-size: 8px;
+
+    }
+
+
+
+
+
+    /* OFFICE */
+
+
+
+    .sports-office-card {
+
+        padding: 19px 18px;
+
+    }
+
+
+
+    .sports-office-card h3 {
+
+        font-size: 15px;
+
+    }
+
+
+
+    .sports-office-card p {
+
+        font-size: 9px;
+
+    }
+
+
+
+
+
+    /* DESCRIPTION */
+
+
+
+    .sports-detail-description {
+
+        margin-top: 40px;
+
+    }
+
+
+
+    .sports-detail-description h2 {
+
+        font-size: 20px;
+
+    }
+
+
+
+    .sports-detail-description > p {
+
+        font-size: 10px;
+
+        line-height: 1.6;
+
+    }
+
+
+
+
+
+    /* FEATURE */
+
+
+
+    .sports-detail-features {
+
+        grid-template-columns: 1fr;
+
+
+
+        width: 100%;
+
+
+
+        gap: 12px;
+
+
+
+        margin-top: 20px;
+
+    }
+
+
+
+    .sports-feature-card {
+
+        min-height: 82px;
+
+
+
+        padding: 16px 17px;
+
+    }
+
+
+
+    .sports-feature-card h3 {
+
+        font-size: 12px;
+
+    }
+
+
+
+    .sports-feature-card p {
+
+        font-size: 10px;
+
+    }
+
+
+
+
+
+    /* CTA */
+
+
+
+    .sports-detail-cta {
+
+        min-height: 180px;
+
+    }
+
+
+
+    .sports-detail-cta-content {
+
+        width: 88%;
+
+    }
+
+
+
+    .sports-detail-cta-content h2 {
+
+        font-size: 20px;
+
+    }
+
+
+
+    .sports-detail-cta-content h2 br {
+
+        display: none;
+
+    }
+
+
+
+}
+
+
+
+
+
+/* =========================================================
+
+   SMALL MOBILE
+
+========================================================= */
+
+
+
+@media (max-width: 480px) {
+
+
+
+    .sports-detail-hero {
+
+        min-height: 220px;
+
+    }
+
+
+
+    .sports-detail-hero-content h1 {
+
+        font-size: 18px;
+
+    }
+
+
+
+    .sports-detail-image img {
+
+        height: 220px;
+
+    }
+
+
+
+    .sports-detail-description h2 {
+
+        font-size: 19px;
+
+    }
+
+
+
+}
+
+
+/* =========================================================
+   RESPONSIVE REVISION — PT. ARI DHARMA KANTI
+   Fokus: tablet/mobile, gambar tidak terpotong, kartu lebih ringkas.
+   Gaya desktop yang sudah ada tetap dipertahankan.
+========================================================= */
+
+.sports-detail-image img {
+    cursor: zoom-in;
+    -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 1024px) {
+    .sports-detail-layout {
+        grid-template-columns: minmax(0, 1fr) 270px;
+        gap: 24px;
+    }
+
+    .sports-detail-sidebar {
+        top: 82px;
+    }
+
+    .sports-consultation-card {
+        padding: 17px;
+    }
+
+    .sports-office-card {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 900px) {
+    .sports-detail-hero {
+        min-height: 270px;
+        padding: 42px 0;
+        box-sizing: border-box;
+    }
+
+    .sports-detail-hero-content {
+        width: min(100% - 40px, 760px);
+    }
+
+    .sports-detail-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+    }
+
+    .sports-detail-sidebar {
+        position: static;
+        top: auto;
+        display: grid;
+        grid-template-columns: minmax(0, 1.45fr) minmax(220px, 0.8fr);
+        align-items: start;
+        gap: 16px;
+        width: 100%;
+    }
+
+    .sports-consultation-card, .sports-office-card {
+        min-width: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .sports-detail-image img {
+        width: 100%;
+        height: auto;
+        max-height: 390px;
+        object-fit: contain;
+    }
+
+    .sports-feature-card {
+        min-width: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .sports-detail-hero {
+        min-height: 0;
+        padding: 38px 0;
+        background-position: center;
+    }
+
+    .sports-detail-hero-content {
+        width: calc(100% - 32px);
+    }
+
+    .sports-detail-hero-content h1 {
+        font-size: clamp(22px, 6vw, 30px);
+        line-height: 1.2;
+        overflow-wrap: anywhere;
+    }
+
+    .sports-detail-hero-content p {
+        max-width: 100%;
+        font-size: 12px;
+        line-height: 1.55;
+    }
+
+    .sports-detail-hero-content a {
+        max-width: 100%;
+        min-height: 38px;
+        box-sizing: border-box;
+        font-size: 11px;
+    }
+
+    .sports-detail-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+    }
+
+    .sports-detail-sidebar {
+        display: flex;
+        flex-direction: column;
+        position: static;
+        gap: 12px;
+    }
+
+    .sports-consultation-card {
+        padding: 16px;
+        border-radius: 8px;
+    }
+
+    .sports-office-card {
+        padding: 15px 16px;
+        border-radius: 8px;
+    }
+
+    .sports-consultation-card h3, .sports-office-card h3 {
+        font-size: 16px;
+        line-height: 1.35;
+    }
+
+    .sports-consultation-card > p, .sports-office-card p {
+        font-size: 12px;
+        line-height: 1.55;
+        overflow-wrap: anywhere;
+    }
+
+    .sports-consultation-card a {
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow-wrap: anywhere;
+    }
+
+    .sports-detail-image img {
+        width: 100%;
+        height: auto;
+        max-height: 340px;
+        object-fit: contain;
+    }
+
+    .sports-detail-layout .sports-feature-card {
+        overflow-wrap: anywhere;
+    }
+}

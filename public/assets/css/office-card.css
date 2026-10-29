@@ -1,0 +1,38 @@
+.office-card {
+    width: 100%;
+    min-height: 150px;              /* agak panjang ke bawah seperti gambar 1 */
+    margin: 20px 0 0;
+    padding: 26px 24px 28px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    background: #0a0a0a;
+    border-radius: 10px;
+}
+
+.office-card h3 {
+    margin: 0 0 14px;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #fff;
+}
+
+.office-card .office-card-address {
+    margin: 0 0 22px;
+    font-size: 10px;
+    line-height: 1.7;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;      /* alamat CMS tetap tampil kapital seperti gambar 1 */
+    color: #d6d6d6;
+}
+
+.office-card .office-card-phone {
+    font-size: 12px;
+    font-weight: 700;
+    color: #e31b23;
+    text-decoration: none;
+}

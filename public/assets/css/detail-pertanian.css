@@ -1,0 +1,762 @@
+/* =========================================================
+   DETAIL PERTANIAN
+========================================================= */
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.agriculture-detail-hero {
+    position: relative;
+
+    width: 100%;
+    min-height: 290px;
+
+    display: flex;
+    align-items: center;
+
+    background-image:
+        url("/assets/css/images-pertanian/peralatan-pertanian.png");
+
+    background-size: cover;
+    background-position: center;
+
+    overflow: hidden;
+}
+
+.agriculture-detail-hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.48);
+
+    z-index: 1;
+}
+
+.agriculture-detail-hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(1120px, 90%);
+
+    margin: 0 auto;
+
+    color: #fff;
+}
+
+.agriculture-detail-hero-content h1 {
+    max-width: 820px;
+
+    margin: 0 0 12px;
+
+    font-size: 30px;
+    line-height: 1.15;
+
+    font-weight: 800;
+
+    letter-spacing: -0.3px;
+}
+
+.agriculture-detail-hero-content p {
+    max-width: 500px;
+
+    margin: 0 0 18px;
+
+    color: #f1f1f1;
+
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.agriculture-back-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 38px;
+
+    padding: 0 17px;
+
+    background: #e31b23;
+    color: #fff;
+
+    border-radius: 3px;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.agriculture-back-button:hover {
+    background: #c9151c;
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.agriculture-detail-main {
+    width: 100%;
+
+    background: #fff;
+}
+
+.agriculture-detail-container {
+    width: min(1120px, 90%);
+
+    margin: 0 auto;
+
+    padding: 48px 0 70px;
+}
+
+
+/* =========================================================
+   LAYOUT
+========================================================= */
+
+.agriculture-detail-layout {
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr) 300px;
+
+    gap: 30px;
+
+    align-items: start;
+}
+
+.agriculture-detail-left {
+    min-width: 0;
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.agriculture-detail-image {
+    width: 100%;
+
+    border-radius: 5px;
+
+    overflow: hidden;
+
+    background: #f5f5f5;
+}
+
+.agriculture-detail-image img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.agriculture-detail-sidebar {
+    position: sticky;
+
+    top: 90px;
+
+    align-self: start;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 22px;
+
+    z-index: 10;
+}
+
+
+/* =========================================================
+   CONSULTATION CARD
+========================================================= */
+
+.agriculture-consultation-card {
+    width: 100%;
+
+    padding: 20px;
+
+    background: #fff0f0;
+
+    border: 1px solid #f1d7d7;
+
+    border-radius: 7px;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+.agriculture-consultation-label {
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: #e31b23;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 0.3px;
+}
+
+.agriculture-consultation-card h3 {
+    margin: 0 0 9px;
+
+    color: #111;
+
+    font-size: 17px;
+    line-height: 1.25;
+
+    font-weight: 700;
+}
+
+.agriculture-consultation-card > p {
+    margin: 0 0 15px;
+
+    color: #555;
+
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   CONSULTATION BUTTONS
+========================================================= */
+
+.agriculture-consultation-primary,
+.agriculture-consultation-secondary {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 34px;
+
+    border-radius: 4px;
+
+    font-size: 9px;
+    font-weight: 600;
+
+    text-align: center;
+
+    transition: 0.2s ease;
+}
+
+.agriculture-consultation-primary {
+    margin-bottom: 8px;
+
+    background: #e31b23;
+    color: #fff;
+}
+
+.agriculture-consultation-primary:hover {
+    background: #c9151c;
+}
+
+.agriculture-consultation-secondary {
+    margin-bottom: 15px;
+
+    background: #fff;
+
+    color: #333;
+
+    border: 1px solid #e2caca;
+}
+
+.agriculture-consultation-secondary:hover {
+    border-color: #e31b23;
+
+    color: #e31b23;
+}
+
+
+/* =========================================================
+   CONSULTATION INFORMATION
+========================================================= */
+
+.agriculture-consultation-info {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 8px;
+
+    margin-top: 9px;
+}
+
+.agriculture-consultation-info img {
+    width: 15px;
+    height: 15px;
+
+    flex: 0 0 15px;
+
+    object-fit: contain;
+}
+
+.agriculture-consultation-info span {
+    color: #555;
+
+    font-size: 8px;
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   OFFICE CARD
+========================================================= */
+
+.agriculture-office-card {
+    width: 100%;
+
+    padding: 17px 18px;
+
+    background: #080808;
+
+    color: #fff;
+
+    border-radius: 5px;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.agriculture-office-card h3 {
+    margin: 0 0 8px;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.agriculture-office-card p {
+    margin: 0 0 8px;
+
+    color: #d2d2d2;
+
+    font-size: 8.5px;
+    line-height: 1.45;
+}
+
+.agriculture-office-card a {
+    color: #e31b23;
+
+    font-size: 10px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.agriculture-detail-description {
+    padding-top: 52px;
+}
+
+.agriculture-detail-description h2 {
+    margin: 0 0 15px;
+
+    color: #111;
+
+    font-size: 25px;
+    line-height: 1.25;
+
+    font-weight: 500;
+}
+
+.agriculture-detail-description > p {
+    max-width: 720px;
+
+    margin: 0 0 32px;
+
+    color: #555;
+
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   FEATURE CARDS
+========================================================= */
+
+.agriculture-detail-features {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+
+    padding-bottom: 60px;
+}
+
+.agriculture-feature-card {
+    min-height: 115px;
+
+    padding: 20px;
+
+    background: #eeeeee;
+
+    border-radius: 7px;
+}
+
+.agriculture-feature-card h3 {
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    margin: 0 0 10px;
+
+    color: #222;
+
+    font-size: 13px;
+    line-height: 1.3;
+
+    font-weight: 700;
+}
+
+.agriculture-feature-card h3 span {
+    width: 8px;
+    height: 8px;
+
+    flex: 0 0 8px;
+
+    border-radius: 50%;
+
+    background: #e31b23;
+}
+
+.agriculture-feature-card p {
+    margin: 0;
+
+    color: #444;
+
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.agriculture-detail-cta {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 245px;
+
+    display: flex;
+    align-items: center;
+
+    background-image:
+        url("/assets/css/images-pertanian/footer.png");
+
+    background-size: cover;
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+}
+
+.agriculture-detail-cta-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.42);
+
+    z-index: 1;
+}
+
+.agriculture-detail-cta-content {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(1120px, 90%);
+
+    margin: 0 auto;
+
+    color: #fff;
+}
+
+.agriculture-detail-cta-content h2 {
+    margin: 0 0 12px;
+
+    font-size: 25px;
+    line-height: 1.15;
+
+    font-weight: 800;
+
+    letter-spacing: 0.5px;
+}
+
+.agriculture-detail-cta-content p {
+    margin: 0 0 18px;
+
+    color: #eee;
+
+    font-size: 10px;
+}
+
+.agriculture-detail-cta-content a {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 35px;
+
+    padding: 0 15px;
+
+    background: #e31b23;
+    color: #fff;
+
+    border-radius: 3px;
+
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.agriculture-detail-cta-content a:hover {
+    background: #c9151c;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .agriculture-detail-hero {
+        min-height: 270px;
+    }
+
+    .agriculture-detail-hero-content h1 {
+        font-size: 27px;
+    }
+
+    .agriculture-detail-layout {
+        grid-template-columns: minmax(0, 1fr) 270px;
+
+        gap: 24px;
+    }
+
+    .agriculture-detail-sidebar {
+        position: static;
+
+        gap: 18px;
+    }
+
+    .agriculture-detail-description {
+        padding-top: 42px;
+    }
+
+    .agriculture-detail-description h2 {
+        font-size: 23px;
+    }
+
+    .agriculture-detail-features {
+        gap: 16px;
+    }
+
+    .agriculture-feature-card {
+        padding: 17px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .agriculture-detail-hero {
+        min-height: 270px;
+
+        background-position: center;
+    }
+
+    .agriculture-detail-hero-content {
+        width: 88%;
+    }
+
+    .agriculture-detail-hero-content h1 {
+        font-size: 22px;
+
+        line-height: 1.15;
+    }
+
+    .agriculture-detail-hero-content p {
+        max-width: 330px;
+
+        font-size: 11px;
+    }
+
+    .agriculture-back-button {
+        min-height: 36px;
+
+        padding: 0 14px;
+
+        font-size: 10px;
+    }
+
+
+    /* MAIN */
+
+   @media (max-width: 600px) {
+    .agriculture-detail-container {
+        width: 88%;
+        padding: 35px 0 28px;
+    }
+}
+    .agriculture-detail-layout {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+
+    /* SIDEBAR */
+
+    .agriculture-detail-sidebar {
+        position: static;
+
+        order: 2;
+
+        gap: 16px;
+    }
+
+    .agriculture-consultation-card {
+        padding: 18px;
+    }
+
+    .agriculture-consultation-card h3 {
+        font-size: 16px;
+    }
+
+    .agriculture-consultation-card > p {
+        font-size: 10px;
+    }
+
+    .agriculture-consultation-info span {
+        font-size: 8.5px;
+    }
+
+    .agriculture-office-card {
+        padding: 16px;
+    }
+
+
+    /* DESCRIPTION */
+
+    .agriculture-detail-description {
+        padding-top: 0;
+
+        order: 1;
+    }
+
+    .agriculture-detail-description h2 {
+        font-size: 21px;
+
+        line-height: 1.25;
+    }
+
+    .agriculture-detail-description > p {
+        font-size: 10.5px;
+
+        margin-bottom: 24px;
+    }
+
+
+    /* FEATURES */
+
+    .agriculture-detail-features {
+        grid-template-columns: 1fr;
+
+        gap: 13px;
+
+        padding-bottom: 40px;
+    }
+
+    .agriculture-feature-card {
+        min-height: auto;
+
+        padding: 17px;
+    }
+
+    .agriculture-feature-card h3 {
+        font-size: 11px;
+    }
+
+    .agriculture-feature-card p {
+        font-size: 9.5px;
+    }
+
+
+    /* CTA */
+
+    .agriculture-detail-cta {
+        min-height: 220px;
+    }
+
+    .agriculture-detail-cta-content {
+        width: 88%;
+    }
+
+    .agriculture-detail-cta-content h2 {
+        font-size: 20px;
+    }
+
+    .agriculture-detail-cta-content p {
+        font-size: 9px;
+    }
+
+}
+
+
+/* =========================================================
+   FIX FOOTER / CTA - FULL BLACK
+========================================================= */
+
+.agriculture-detail-cta {
+    background: #050505 !important;
+    background-image: none !important;
+}
+
+.agriculture-detail-cta-overlay {
+    background: #050505 !important;
+}
+
+.site-footer {
+    background: #050505 !important;
+    background-image: none !important;
+}
+
+.site-footer::before,
+.site-footer::after {
+    content: none !important;
+    display: none !important;
+    background: none !important;
+}

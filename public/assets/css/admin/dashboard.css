@@ -1,0 +1,671 @@
+/* Dashboard ADK */
+.adk-dashboard {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.adk-dashboard-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.adk-dashboard-heading h1 {
+    margin: 0 0 5px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #151719;
+}
+
+.adk-dashboard-heading p,
+.adk-section-heading p {
+    margin: 0;
+    color: #718096;
+    font-size: 14px;
+}
+
+.adk-dashboard-date {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #718096;
+    font-size: 13px;
+}
+
+.adk-dashboard-date span {
+    font-size: 24px;
+}
+
+.adk-dashboard-date strong,
+.adk-dashboard-date small {
+    display: block;
+}
+
+.adk-dashboard-date small {
+    margin-top: 4px;
+}
+
+.adk-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.adk-dashboard-card {
+    background: #fff;
+    border: 1px solid #e5e9ef;
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.adk-stat-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    min-width: 0;
+}
+
+.adk-icon {
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffe8e9;
+    color: #dc171e;
+    border-radius: 14px;
+    font-size: 23px;
+    margin-bottom: 0;
+}
+
+.adk-stat-card h3 {
+    margin: 4px 0 8px;
+    font-size: 14px;
+    color: #475569;
+}
+
+.adk-stat-card strong {
+    display: block;
+    font-size: 27px;
+    color: #151719;
+}
+
+.adk-stat-card p {
+    margin: 6px 0 0;
+    color: #718096;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.adk-arrow {
+    margin-left: auto;
+    color: #dc171e;
+    font-size: 20px;
+}
+
+.adk-quick-section,
+.adk-activity-section {
+    margin-bottom: 20px;
+}
+
+.adk-section-heading {
+    margin-bottom: 20px;
+}
+
+.adk-section-heading h2 {
+    margin: 0 0 6px;
+    font-size: 19px;
+    font-weight: 700;
+    color: #151719;
+}
+
+.adk-quick-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.adk-quick-card {
+    min-width: 0;
+    padding: 16px;
+    border: 1px solid #e5e9ef;
+    border-radius: 9px;
+    background: #fff;
+}
+
+.adk-quick-card h3 {
+    margin: 12px 0 8px;
+    font-size: 14px;
+    color: #151719;
+}
+
+.adk-quick-card p {
+    margin: 0;
+    color: #718096;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.adk-activity-empty {
+    padding: 24px;
+    text-align: center;
+    color: #718096;
+    border: 1px dashed #e5e9ef;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+.adk-activity-empty span {
+    font-size: 26px;
+    color: #dc171e;
+}
+
+.adk-topbar-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.adk-notification {
+    font-size: 23px;
+    color: #526071;
+}
+
+.adk-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #ffe8e9;
+    color: #dc171e;
+    font-weight: 700;
+}
+
+.adk-user-name {
+    color: #526071;
+    font-size: 13px;
+}
+
+@media (max-width: 1100px) {
+    .adk-stat-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .adk-quick-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .adk-dashboard-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .adk-dashboard-heading h1 {
+        font-size: 23px;
+    }
+
+    .adk-stat-grid,
+    .adk-quick-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .adk-dashboard-card {
+        padding: 16px;
+    }
+
+    .adk-user-name {
+        max-width: 100px;
+        overflow-wrap: anywhere;
+    }
+}
+
+
+
+
+
+/* Akses Cepat - Website Publik ADK */
+.adk-public-website {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 170px;
+    gap: 24px;
+    padding: 20px 24px;
+    overflow: hidden;
+    border: 1px solid #fecaca;
+    border-radius: 10px;
+    background: linear-gradient(110deg, #fffafa 0%, #fff1f2 100%);
+}
+
+.adk-public-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    flex: 1;
+    min-width: 0;
+}
+
+
+.adk-public-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 76px;
+    height: 76px;
+    padding: 10px;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #ffe4e6;
+}
+
+.adk-public-icon img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+
+.adk-public-info h3 {
+    margin: 0 0 8px;
+    color: #171717;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.adk-public-info p {
+    margin: 0 0 16px;
+    color: #718096;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.adk-public-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    border-radius: 7px;
+    background: #e3182b;
+    color: #fff !important;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none !important;
+    transition: background .2s ease;
+}
+
+.adk-public-button:hover {
+    background: #bd1021;
+}
+
+.adk-public-decoration {
+    position: absolute;
+    right: 32%;
+    bottom: -50px;
+    color: #fbcdd2;
+    font-size: 150px;
+    opacity: .65;
+}
+
+.adk-public-preview {
+    position: relative;
+    z-index: 1;
+    align-self: stretch;
+    width: 30%;
+    min-width: 220px;
+    min-height: 130px;
+    margin: -10px -12px -10px 0;
+}
+
+.adk-public-preview img {
+    display: block;
+    width: 150%;
+    height: 100%;
+    min-height: 130px;
+    object-fit: contain;
+    object-position: center;
+}
+
+@media (max-width: 768px) {
+    .adk-public-website {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 18px;
+    }
+
+    .adk-public-content {
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .adk-public-icon {
+        width: 54px;
+        height: 54px;
+        border-radius: 14px;
+        font-size: 34px;
+    }
+
+    .adk-public-info h3 {
+        font-size: 18px;
+    }
+
+    .adk-public-preview {
+        width: 100%;
+        min-width: 0;
+        height: 140px;
+        margin: 0;
+    }
+
+    .adk-public-decoration {
+        right: 10px;
+        bottom: 100px;
+        font-size: 90px;
+    }
+}
+
+@media (max-width: 480px) {
+    .adk-public-content {
+        flex-direction: column;
+    }
+
+    .adk-public-info p {
+        font-size: 13px;
+    }
+}
+
+
+/* Ikon statistik tetap konsisten */
+.adk-dashboard .adk-stat-card .adk-icon {
+    width: 46px !important;
+    height: 46px !important;
+    min-width: 46px !important;
+    min-height: 46px !important;
+    max-width: 46px !important;
+    max-height: 46px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+.adk-dashboard .adk-stat-card .adk-icon img {
+    width: 30px !important;
+    height: 30px !important;
+    max-width: 30px !important;
+    max-height: 30px !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+}
+
+
+
+/* Logo sidebar ADK */
+body.adk-admin .adk-brand {
+    padding: 20px 16px 26px;
+    text-align: center;
+    border-bottom: 1px solid #29313b;
+}
+
+body.adk-admin .adk-brand img {
+    display: block;
+    width: 110px;
+    height: 52px;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+/* Ikon sidebar */
+body.adk-admin .adk-menu-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+}
+
+body.adk-admin .adk-menu-icon svg {
+    width: 19px;
+    height: 19px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+body.adk-admin .adk-menu a {
+    gap: 13px;
+    min-height: 42px;
+    border-radius: 7px;
+}
+
+body.adk-admin .adk-menu a.active {
+    background: #ed0b24;
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Navbar */
+body.adk-admin .adk-topbar {
+    height: 62px;
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+body.adk-admin .adk-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 7px;
+    border-radius: 6px;
+}
+
+body.adk-admin .adk-toggle:hover {
+    background: #f3f4f6;
+}
+
+body.adk-admin .adk-toggle svg {
+    width: 21px;
+    height: 21px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+}
+
+/* Profil dan notifikasi */
+body.adk-admin .adk-topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: #475569;
+    font-size: 13px;
+}
+
+body.adk-admin .adk-notification {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 7px;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: #64748b;
+    cursor: pointer;
+}
+
+body.adk-admin .adk-notification:hover {
+    background: #f3f4f6;
+}
+
+body.adk-admin .adk-notification svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+body.adk-admin .adk-notification-badge {
+    position: absolute;
+    top: 1px;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 15px;
+    height: 15px;
+    padding: 0 3px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    background: #ed0b24;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+body.adk-admin .adk-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #fee2e2;
+    color: #dc2626;
+    font-weight: 700;
+}
+
+body.adk-admin .adk-user-name {
+    font-weight: 600;
+}
+
+body.adk-admin .adk-user-chevron {
+    margin-left: -9px;
+    color: #64748b;
+}
+
+
+/* Search bar dashboard ADK */
+body.adk-admin .dashboardSearch {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 30px;
+    margin: 0;
+    background: #fff;
+    border: 0;
+    border-bottom: 1px solid #e7eaf0;
+}
+
+body.adk-admin .dashboardSearch #searchApp {
+    width: 100%;
+    max-width: 100%;
+}
+
+body.adk-admin .dashboardSearch a17-search {
+    display: block;
+    width: 100%;
+    min-width: 0;
+}
+
+body.adk-admin .dashboardSearch input,
+body.adk-admin .dashboardSearch .input {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 42px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background: #f8fafc;
+    color: #334155;
+    font-size: 14px;
+    box-shadow: none;
+}
+
+body.adk-admin .dashboardSearch input:focus {
+    outline: none;
+    border-color: #e3182b;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(227, 24, 43, .08);
+}
+
+@media (max-width: 600px) {
+    body.adk-admin .dashboardSearch {
+        padding: 10px 14px;
+    }
+}
+
+
+/* Tampilan layar kecil */
+@media (max-width: 600px) {
+    body.adk-admin .adk-topbar {
+        padding: 0 12px;
+    }
+
+    body.adk-admin .adk-topbar-right {
+        gap: 8px;
+    }
+
+    body.adk-admin .adk-user-name,
+    body.adk-admin .adk-user-chevron {
+        display: none;
+    }
+}
+
+
+
+/* Hilangkan background hitam pembungkus search Twill */
+body.adk-admin .dashboardSearch,
+body.adk-admin #searchApp,
+body.adk-admin .dashboardSearch .search,
+body.adk-admin .dashboardSearch .search__inner {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Pastikan area search tidak membuat blok hitam */
+body.adk-admin .dashboardSearch {
+    padding: 12px 30px !important;
+    margin: 0 !important;
+}
+
+/* Kolom input tetap rapi */
+body.adk-admin .dashboardSearch input {
+    background: #fff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    color: #334155 !important;
+}

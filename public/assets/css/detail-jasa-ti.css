@@ -1,0 +1,1619 @@
+/* =========================================================
+
+   DETAIL JASA TEKNOLOGI INFORMASI
+
+========================================================= */
+
+
+
+
+
+/* =========================================================
+
+   HERO
+
+========================================================= */
+
+
+
+.ti-detail-hero {
+
+    position: relative;
+
+
+
+    width: 100%;
+
+    min-height: 290px;
+
+
+
+    display: flex;
+
+    align-items: center;
+
+
+
+    background-image:
+
+        url("/assets/css/images-jasa-ti/jasa-teknologi-informasi.png");
+
+
+
+    background-size: cover;
+
+    background-position: center;
+
+
+
+    overflow: hidden;
+
+}
+
+
+
+.ti-detail-hero-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+
+
+    background: rgba(0, 0, 0, 0.55);
+
+
+
+    z-index: 1;
+
+}
+
+
+
+.ti-detail-hero-content {
+
+    position: relative;
+
+
+
+    z-index: 2;
+
+
+
+    width: min(1120px, 90%);
+
+
+
+    margin: 0 auto;
+
+
+
+    color: #fff;
+
+}
+
+
+
+.ti-detail-hero-content h1 {
+
+    margin: 0 0 12px;
+
+
+
+    font-size: 30px;
+
+    line-height: 1.12;
+
+
+
+    font-weight: 800;
+
+
+
+    letter-spacing: -0.3px;
+
+}
+
+
+
+.ti-detail-hero-content p {
+
+    max-width: 500px;
+
+
+
+    margin: 0 0 18px;
+
+
+
+    color: #f1f1f1;
+
+
+
+    font-size: 13px;
+
+    line-height: 1.55;
+
+}
+
+
+
+.ti-back-button {
+
+    display: inline-flex;
+
+
+
+    align-items: center;
+
+    justify-content: center;
+
+
+
+    min-height: 38px;
+
+
+
+    padding: 0 17px;
+
+
+
+    background: #e31b23;
+
+    color: #fff;
+
+
+
+    border-radius: 3px;
+
+
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+
+
+    transition: 0.2s ease;
+
+}
+
+
+
+.ti-back-button:hover {
+
+    background: #c9151c;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   MAIN
+
+========================================================= */
+
+
+
+.ti-detail-main {
+
+    width: 100%;
+
+
+
+    background: #fff;
+
+}
+
+
+
+.ti-detail-container {
+
+    width: min(1120px, 90%);
+
+
+
+    margin: 0 auto;
+
+
+
+    padding: 48px 0 70px;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   LAYOUT
+
+========================================================= */
+
+
+
+.ti-detail-layout {
+
+    display: grid;
+
+
+
+    grid-template-columns: minmax(0, 1fr) 300px;
+
+
+
+    gap: 30px;
+
+
+
+    align-items: start;
+
+}
+
+
+
+.ti-detail-left {
+
+    min-width: 0;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   IMAGE
+
+========================================================= */
+
+
+
+.ti-detail-image {
+
+    width: 100%;
+
+
+
+    border-radius: 5px;
+
+
+
+    overflow: hidden;
+
+
+
+    background: #f5f5f5;
+
+}
+
+
+
+.ti-detail-image img {
+
+    display: block;
+
+
+
+    width: 100%;
+
+    height: auto;
+
+
+
+    object-fit: cover;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   SIDEBAR
+
+========================================================= */
+
+
+
+.ti-detail-sidebar {
+
+    position: sticky;
+
+
+
+    top: 90px;
+
+
+
+    align-self: start;
+
+
+
+    width: 100%;
+
+
+
+    display: flex;
+
+    flex-direction: column;
+
+
+
+    gap: 22px;
+
+
+
+    z-index: 10;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   CONSULTATION CARD
+
+========================================================= */
+
+
+
+.ti-consultation-card {
+
+    width: 100%;
+
+
+
+    padding: 20px;
+
+
+
+    background: #fff0f0;
+
+
+
+    border: 1px solid #f1d7d7;
+
+
+
+    border-radius: 7px;
+
+
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+
+}
+
+
+
+.ti-consultation-label {
+
+    display: block;
+
+
+
+    margin-bottom: 9px;
+
+
+
+    color: #e31b23;
+
+
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+
+
+    letter-spacing: 0.3px;
+
+}
+
+
+
+.ti-consultation-card h3 {
+
+    margin: 0 0 9px;
+
+
+
+    color: #111;
+
+
+
+    font-size: 17px;
+
+    line-height: 1.25;
+
+
+
+    font-weight: 700;
+
+}
+
+
+
+.ti-consultation-card > p {
+
+    margin: 0 0 15px;
+
+
+
+    color: #555;
+
+
+
+    font-size: 10px;
+
+    line-height: 1.5;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   CONSULTATION BUTTONS
+
+========================================================= */
+
+
+
+.ti-consultation-primary,
+
+.ti-consultation-secondary {
+
+    width: 100%;
+
+
+
+    display: flex;
+
+
+
+    align-items: center;
+
+    justify-content: center;
+
+
+
+    min-height: 34px;
+
+
+
+    border-radius: 4px;
+
+
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+
+
+    text-align: center;
+
+
+
+    transition: 0.2s ease;
+
+}
+
+
+
+.ti-consultation-primary {
+
+    margin-bottom: 8px;
+
+
+
+    background: #e31b23;
+
+    color: #fff;
+
+}
+
+
+
+.ti-consultation-primary:hover {
+
+    background: #c9151c;
+
+}
+
+
+
+.ti-consultation-secondary {
+
+    margin-bottom: 15px;
+
+
+
+    background: #fff;
+
+
+
+    color: #333;
+
+
+
+    border: 1px solid #e2caca;
+
+}
+
+
+
+.ti-consultation-secondary:hover {
+
+    border-color: #e31b23;
+
+
+
+    color: #e31b23;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   CONSULTATION INFORMATION
+
+========================================================= */
+
+
+
+.ti-consultation-info {
+
+    display: flex;
+
+
+
+    align-items: flex-start;
+
+
+
+    gap: 8px;
+
+
+
+    margin-top: 9px;
+
+}
+
+
+
+.ti-consultation-info img {
+
+    width: 15px;
+
+    height: 15px;
+
+
+
+    flex: 0 0 15px;
+
+
+
+    object-fit: contain;
+
+}
+
+
+
+.ti-consultation-info span {
+
+    color: #555;
+
+
+
+    font-size: 8px;
+
+    line-height: 1.4;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   OFFICE CARD
+
+========================================================= */
+
+
+
+.ti-office-card {
+
+    width: 100%;
+
+
+
+    padding: 17px 18px;
+
+
+
+    background: #080808;
+
+
+
+    color: #fff;
+
+
+
+    border-radius: 5px;
+
+
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+
+}
+
+
+
+.ti-office-card h3 {
+
+    margin: 0 0 8px;
+
+
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+}
+
+
+
+.ti-office-card p {
+
+    margin: 0 0 8px;
+
+
+
+    color: #d2d2d2;
+
+
+
+    font-size: 8.5px;
+
+    line-height: 1.45;
+
+}
+
+
+
+.ti-office-card a {
+
+    color: #e31b23;
+
+
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   DESCRIPTION
+
+========================================================= */
+
+
+
+.ti-detail-description {
+
+    padding-top: 52px;
+
+}
+
+
+
+.ti-detail-description h2 {
+
+    margin: 0 0 15px;
+
+
+
+    color: #111;
+
+
+
+    font-size: 25px;
+
+    line-height: 1.25;
+
+
+
+    font-weight: 500;
+
+}
+
+
+
+.ti-detail-description > p {
+
+    max-width: 720px;
+
+
+
+    margin: 0 0 32px;
+
+
+
+    color: #555;
+
+
+
+    font-size: 14px;
+
+    line-height: 1.55;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   FEATURE CARDS
+
+========================================================= */
+
+
+
+.ti-detail-features {
+
+    display: grid;
+
+
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+
+
+    gap: 20px;
+
+}
+
+
+
+.ti-feature-card {
+
+    min-height: 115px;
+
+
+
+    padding: 20px;
+
+
+
+    background: #eeeeee;
+
+
+
+    border-radius: 7px;
+
+}
+
+
+
+.ti-feature-card h3 {
+
+    display: flex;
+
+
+
+    align-items: center;
+
+
+
+    gap: 6px;
+
+
+
+    margin: 0 0 10px;
+
+
+
+    color: #222;
+
+
+
+    font-size: 13px;
+
+    line-height: 1.3;
+
+
+
+    font-weight: 700;
+
+}
+
+
+
+.ti-feature-card h3 span {
+
+    width: 8px;
+
+    height: 8px;
+
+
+
+    flex: 0 0 8px;
+
+
+
+    border-radius: 50%;
+
+
+
+    background: #e31b23;
+
+}
+
+
+
+.ti-feature-card p {
+
+    margin: 0;
+
+
+
+    color: #444;
+
+
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   CTA
+
+========================================================= */
+
+
+
+.ti-detail-cta {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    min-height: 245px;
+    display: flex;
+    align-items: center;
+    background: #000000 !important;
+    background-color: #000000 !important;
+    background-image: none !important;
+    overflow: hidden;
+}
+
+.ti-detail-cta-overlay {
+    position: absolute;
+    inset: 0;
+    background: #000000 !important;
+    background-color: #000000 !important;
+    background-image: none !important;
+    opacity: 1 !important;
+    z-index: 1;
+}
+
+
+
+.ti-detail-cta-content {
+
+    position: relative;
+
+
+
+    z-index: 2;
+
+
+
+    width: min(1120px, 90%);
+
+
+
+    margin: 0 auto;
+
+
+
+    color: #fff;
+
+}
+
+
+
+.ti-detail-cta-content h2 {
+
+    margin: 0 0 12px;
+
+
+
+    font-size: 25px;
+
+    line-height: 1.15;
+
+
+
+    font-weight: 800;
+
+
+
+    letter-spacing: 0.5px;
+
+}
+
+
+
+.ti-detail-cta-content p {
+
+    margin: 0 0 18px;
+
+
+
+    color: #eee;
+
+
+
+    font-size: 10px;
+
+}
+
+
+
+.ti-detail-cta-content a {
+
+    display: inline-flex;
+
+
+
+    align-items: center;
+
+    justify-content: center;
+
+
+
+    min-height: 35px;
+
+
+
+    padding: 0 15px;
+
+
+
+    background: #e31b23;
+
+    color: #fff;
+
+
+
+    border-radius: 3px;
+
+
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+}
+
+
+
+.ti-detail-cta-content a:hover {
+
+    background: #c9151c;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   TABLET
+
+========================================================= */
+
+
+
+@media (max-width: 900px) {
+
+
+
+    .ti-detail-hero {
+
+        min-height: 270px;
+
+    }
+
+
+
+    .ti-detail-hero-content h1 {
+
+        font-size: 27px;
+
+    }
+
+
+
+    .ti-detail-layout {
+
+        grid-template-columns: minmax(0, 1fr) 270px;
+
+
+
+        gap: 24px;
+
+    }
+
+
+
+    .ti-detail-sidebar {
+
+        position: static;
+
+
+
+        gap: 18px;
+
+    }
+
+
+
+    .ti-detail-description {
+
+        padding-top: 42px;
+
+    }
+
+
+
+    .ti-detail-description h2 {
+
+        font-size: 23px;
+
+    }
+
+
+
+    .ti-detail-features {
+
+        gap: 16px;
+
+    }
+
+
+
+    .ti-feature-card {
+
+        padding: 17px;
+
+    }
+
+
+
+}
+
+
+
+
+
+/* =========================================================
+
+   MOBILE
+
+========================================================= */
+
+
+
+@media (max-width: 600px) {
+
+
+
+    .ti-detail-hero {
+
+        min-height: 270px;
+
+
+
+        background-position: center;
+
+    }
+
+
+
+    .ti-detail-hero-content {
+
+        width: 88%;
+
+    }
+
+
+
+    .ti-detail-hero-content h1 {
+
+        font-size: 22px;
+
+
+
+        line-height: 1.15;
+
+    }
+
+
+
+    .ti-detail-hero-content p {
+
+        max-width: 330px;
+
+
+
+        font-size: 11px;
+
+    }
+
+
+
+    .ti-back-button {
+
+        min-height: 36px;
+
+
+
+        padding: 0 14px;
+
+
+
+        font-size: 10px;
+
+    }
+
+
+
+
+
+    /* MAIN */
+
+
+
+    .ti-detail-container {
+
+        width: 88%;
+
+
+
+        padding: 35px 0 50px;
+
+    }
+
+
+
+    .ti-detail-layout {
+
+        grid-template-columns: 1fr;
+
+
+
+        gap: 30px;
+
+    }
+
+
+
+
+
+    /* SIDEBAR */
+
+
+
+    .ti-detail-sidebar {
+
+        position: static;
+
+
+
+        order: 2;
+
+
+
+        gap: 16px;
+
+    }
+
+
+
+    .ti-consultation-card {
+
+        padding: 18px;
+
+    }
+
+
+
+    .ti-consultation-card h3 {
+
+        font-size: 16px;
+
+    }
+
+
+
+    .ti-consultation-card > p {
+
+        font-size: 10px;
+
+    }
+
+
+
+    .ti-consultation-info span {
+
+        font-size: 8.5px;
+
+    }
+
+
+
+    .ti-office-card {
+
+        padding: 16px;
+
+    }
+
+
+
+
+
+    /* DESCRIPTION */
+
+
+
+    .ti-detail-description {
+
+        padding-top: 0;
+
+
+
+        order: 1;
+
+    }
+
+
+
+    .ti-detail-description h2 {
+
+        font-size: 21px;
+
+
+
+        line-height: 1.25;
+
+    }
+
+
+
+    .ti-detail-description > p {
+
+        font-size: 10.5px;
+
+
+
+        margin-bottom: 24px;
+
+    }
+
+
+
+
+
+    /* FEATURES */
+
+
+
+    .ti-detail-features {
+
+        grid-template-columns: 1fr;
+
+
+
+        gap: 13px;
+
+    }
+
+
+
+    .ti-feature-card {
+
+        min-height: auto;
+
+
+
+        padding: 17px;
+
+    }
+
+
+
+    .ti-feature-card h3 {
+
+        font-size: 11px;
+
+    }
+
+
+
+    .ti-feature-card p {
+
+        font-size: 9.5px;
+
+    }
+
+
+
+
+
+    /* CTA */
+
+
+
+    .ti-detail-cta {
+
+        min-height: 220px;
+
+    }
+
+
+
+    .ti-detail-cta-content {
+
+        width: 88%;
+
+    }
+
+
+
+    .ti-detail-cta-content h2 {
+
+        font-size: 20px;
+
+    }
+
+
+
+    .ti-detail-cta-content p {
+
+        font-size: 9px;
+
+    }
+
+
+
+}
+
+
+/* =========================================================
+   RESPONSIVE REVISION — PT. ARI DHARMA KANTI
+   Fokus: tablet/mobile, gambar tidak terpotong, kartu lebih ringkas.
+   Gaya desktop yang sudah ada tetap dipertahankan.
+========================================================= */
+
+.ti-detail-image img {
+    cursor: zoom-in;
+    -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 1024px) {
+    .ti-detail-layout {
+        grid-template-columns: minmax(0, 1fr) 270px;
+        gap: 24px;
+    }
+
+    .ti-detail-sidebar {
+        top: 82px;
+    }
+
+    .ti-consultation-card {
+        padding: 17px;
+    }
+
+    .ti-office-card {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 900px) {
+    .ti-detail-hero {
+        min-height: 270px;
+        padding: 42px 0;
+        box-sizing: border-box;
+    }
+
+    .ti-detail-hero-content {
+        width: min(100% - 40px, 760px);
+    }
+
+    .ti-detail-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+    }
+
+    .ti-detail-sidebar {
+        position: static;
+        top: auto;
+        display: grid;
+        grid-template-columns: minmax(0, 1.45fr) minmax(220px, 0.8fr);
+        align-items: start;
+        gap: 16px;
+        width: 100%;
+    }
+
+    .ti-consultation-card, .ti-office-card {
+        min-width: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .ti-detail-image img {
+        width: 100%;
+        height: auto;
+        max-height: 390px;
+        object-fit: contain;
+    }
+
+    .ti-feature-card {
+        min-width: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .ti-detail-hero {
+        min-height: 0;
+        padding: 38px 0;
+        background-position: center;
+    }
+
+    .ti-detail-hero-content {
+        width: calc(100% - 32px);
+    }
+
+    .ti-detail-hero-content h1 {
+        font-size: clamp(22px, 6vw, 30px);
+        line-height: 1.2;
+        overflow-wrap: anywhere;
+    }
+
+    .ti-detail-hero-content p {
+        max-width: 100%;
+        font-size: 12px;
+        line-height: 1.55;
+    }
+
+    .ti-detail-hero-content a {
+        max-width: 100%;
+        min-height: 38px;
+        box-sizing: border-box;
+        font-size: 11px;
+    }
+
+    .ti-detail-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+    }
+
+    .ti-detail-sidebar {
+        display: flex;
+        flex-direction: column;
+        position: static;
+        gap: 12px;
+    }
+
+    .ti-consultation-card {
+        padding: 16px;
+        border-radius: 8px;
+    }
+
+    .ti-office-card {
+        padding: 15px 16px;
+        border-radius: 8px;
+    }
+
+    .ti-consultation-card h3, .ti-office-card h3 {
+        font-size: 16px;
+        line-height: 1.35;
+    }
+
+    .ti-consultation-card > p, .ti-office-card p {
+        font-size: 12px;
+        line-height: 1.55;
+        overflow-wrap: anywhere;
+    }
+
+    .ti-consultation-card a {
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow-wrap: anywhere;
+    }
+
+    .ti-detail-image img {
+        width: 100%;
+        height: auto;
+        max-height: 340px;
+        object-fit: contain;
+    }
+
+    .ti-detail-layout .ti-feature-card {
+        overflow-wrap: anywhere;
+    }
+}
+
+/* =========================================================
+   FINAL FIX CTA JASA TEKNOLOGI INFORMASI — FULL BLACK
+   Hanya memengaruhi CTA; gambar hero tetap dipertahankan.
+========================================================= */
+html body section.ti-detail-cta {
+    background: #000000 !important;
+    background-color: #000000 !important;
+    background-image: none !important;
+    isolation: isolate !important;
+}
+
+html body section.ti-detail-cta::before,
+html body section.ti-detail-cta::after {
+    content: none !important;
+    display: none !important;
+    background: none !important;
+    background-image: none !important;
+}
+
+html body section.ti-detail-cta .ti-detail-cta-overlay {
+    background: #000000 !important;
+    background-color: #000000 !important;
+    background-image: none !important;
+    opacity: 1 !important;
+}
+
+html body section.ti-detail-cta .ti-detail-cta-content,
+html body section.ti-detail-cta .ti-detail-cta-content h2 {
+    color: #ffffff !important;
+}
+
+html body section.ti-detail-cta .ti-detail-cta-content p {
+    color: #eeeeee !important;
+}
+
+html body section.ti-detail-cta .ti-detail-cta-content a {
+    background: #e31b23 !important;
+    background-image: none !important;
+    color: #ffffff !important;
+}
