@@ -23,7 +23,7 @@ CMS digunakan untuk mengelola konten pada website, meliputi:
 - Galeri
 - Tentang Kami
 - Kontak
-- Pengaturan Global, termasuk CTA, footer, dan informasi konsultasi
+- Pengaturan Global, termasuk CTA, dan footer.
 
 Konten yang dikelola melalui CMS terhubung dengan database sesuai implementasi aplikasi.
 
