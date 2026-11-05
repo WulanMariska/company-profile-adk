@@ -12,30 +12,38 @@ class HomePageController extends Controller
     /**
      * Menampilkan halaman CMS Beranda.
      */
-  public function index()
-{
-    $settings = HomePageSetting::first();
+    public function index()
+    {
+        $settings = HomePageSetting::first();
 
-    if (!$settings) {
-        $settings = new HomePageSetting();
+        if (!$settings) {
+            $settings = new HomePageSetting();
 
-        $settings->hero_title = 'SOLUSI LENGKAP UNTUK KEBUTUHAN BISNIS DAN RUMAH ANDA';
-        $settings->hero_description = 'Menyediakan berbagai produk berkualitas dengan harga kompetitif serta layanan profesional untuk memenuhi kebutuhan Anda.';
-        $settings->hero_button = 'Jelajahi Layanan';
-        $settings->hero_link = '/layanan';
-        $settings->hero_second_button = 'Hubungi Kami';
-        $settings->hero_second_link = '/kontak';
-        $settings->service_count = 4;
-        $settings->services_visible = true;
-        $settings->gallery_count = 4;
-        $settings->gallery_visible = true;
-        $settings->about_visible = true;
+            $settings->hero_title = 'SOLUSI LENGKAP UNTUK KEBUTUHAN BISNIS DAN RUMAH ANDA';
+            $settings->hero_description = 'Menyediakan berbagai produk berkualitas dengan harga kompetitif serta layanan profesional untuk memenuhi kebutuhan Anda.';
+            $settings->hero_button = 'Jelajahi Layanan';
+            $settings->hero_link = '/layanan';
+            $settings->hero_second_button = 'Hubungi Kami';
+            $settings->hero_second_link = '/kontak';
+            $settings->service_count = 4;
+            $settings->services_visible = true;
+            $settings->gallery_count = 4;
+            $settings->gallery_visible = true;
+            $settings->about_visible = true;
 
-        $settings->save();
+            $settings->save();
+        }
+
+        return view('admin.dashboard', compact('settings'));
     }
 
-    return view('admin.dashboard', compact('settings'));
-}
+    /**
+     * Menampilkan preview CMS Beranda.
+     */
+    public function preview()
+    {
+        return view('admin.dashboard');
+    }
 
     /**
      * Menyimpan pengaturan CMS Beranda.
@@ -96,11 +104,11 @@ class HomePageController extends Controller
                 'boolean',
             ],
 
-           'gallery_count' => [
-                    'required',
-                    'integer',
-                    'in:3,4,6,8',
-                ],
+            'gallery_count' => [
+                'required',
+                'integer',
+                'in:3,4,6,8',
+            ],
 
             'gallery_visible' => [
                 'nullable',
@@ -122,7 +130,6 @@ class HomePageController extends Controller
             ?? new HomePageSetting();
 
         // Checkbox yang tidak dicentang tidak dikirim oleh browser.
-        // Karena itu, nilainya harus diatur secara eksplisit.
         $validated['services_visible'] =
             $request->boolean('services_visible');
 
@@ -132,8 +139,7 @@ class HomePageController extends Controller
         $validated['about_visible'] =
             $request->boolean('about_visible');
 
-        // Jika ada gambar baru, simpan gambar tersebut.
-        // Jika tidak ada, gambar lama tetap dipertahankan.
+        // Simpan gambar baru jika ada.
         if ($request->hasFile('hero_image')) {
             $path = $request->file('hero_image')
                 ->store('homepage', 'public');
@@ -142,7 +148,6 @@ class HomePageController extends Controller
 
             $validated['hero_image'] = $path;
 
-            // Hapus gambar lama hanya setelah gambar baru berhasil disimpan.
             if ($oldImage) {
                 Storage::disk('public')->delete($oldImage);
             }
@@ -150,7 +155,6 @@ class HomePageController extends Controller
             unset($validated['hero_image']);
         }
 
-        // Simpan pengaturan Beranda ke database.
         $settings->fill($validated);
         $settings->save();
 

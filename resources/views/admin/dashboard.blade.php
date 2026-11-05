@@ -426,11 +426,11 @@
             grid-column: 1 / -1;
         }
 
-        .field label {
-            display: block;
-            font-size: 12px;
-            font-weight: 700;
-            margin-bottom: 9px;
+        .field-label-note {
+            color: var(--muted);
+            font-size: 10px;
+            font-weight: 400;
+            margin-left: 5px;
         }
 
         .field input,
@@ -1008,14 +1008,28 @@
                                 <textarea id="heroDescription" name="hero_description">{{ old('hero_description', $settings->hero_description ?? 'PT. Ari Dharma Kanti menyediakan beragam produk dan solusi untuk mendukung kebutuhan Anda.') }}</textarea>
                             </div>
 
-                            <div class="field">
-                                <label for="heroButton">Teks tombol utama</label>
-                               <input id="heroButton" name="hero_button"
-                                value="{{ old('hero_button', $settings->hero_button ?? 'Jelajahi Layanan') }}">
-                            </div>
+                        <div class="field">
+                            <label for="heroButton">
+                                Teks tombol utama
+                                <span class="field-label-note">
+                                    (Muncul pada tombol pertama di Hero Beranda)
+                                </span>
+                            </label>
+
+                            <input
+                                id="heroButton"
+                                name="hero_button"
+                                value="{{ old('hero_button', $settings->hero_button ?? 'Jelajahi Layanan') }}"
+                            >
+                        </div>
 
                             <div class="field">
-                                <label for="heroLink">Tautan tombol utama</label>
+                              <label for="heroLink">
+                                    Tautan tombol utama
+                                    <span class="field-label-note">
+                                        (Menentukan halaman yang dibuka saat tombol utama diklik)
+                                    </span>
+                                </label>
                                 <select id="heroLink" name="hero_link">
                                     <option value="/layanan" @selected(old('hero_link', $settings->hero_link ?? '/layanan') === '/layanan')>Halaman Layanan</option>
                                     <option value="/tentang-kami" @selected(old('hero_link', $settings->hero_link ?? '/layanan') === '/tentang-kami')>Tentang Kami</option>
@@ -1024,20 +1038,41 @@
                             </div>
 
                             <div class="field">
-                                <label for="heroSecondButton">Teks tombol kedua</label>
-                                <input id="heroSecondButton" name="hero_second_button"
+                                <label for="heroSecondButton">
+                                    Teks tombol kedua
+                                    <span class="field-label-note">
+                                        (Muncul pada tombol kedua di Hero Beranda)
+                                    </span>
+                                </label>
+                                 <input id="heroSecondButton" name="hero_second_button"
                                  value="{{ old('hero_second_button', $settings->hero_second_button ?? 'Hubungi Kami') }}">
                             </div>
 
-                            <div class="field">
-                                <label for="heroSecondLink">Tautan tombol kedua</label>
-                               <select id="heroSecondLink" name="hero_second_link">
-                                    <option value="/kontak" @selected(old('hero_second_link', $settings->hero_second_link ?? '/kontak') === '/kontak')>Halaman Kontak</option>
-                                    <option value="/layanan" @selected(old('hero_second_link', $settings->hero_second_link ?? '/kontak') === '/layanan')>Halaman Layanan</option>
-                                    <option value="/tentang-kami" @selected(old('hero_second_link', $settings->hero_second_link ?? '/kontak') === '/tentang-kami')>Tentang Kami</option>
-                                </select>
-                            </div>
+                         <div class="field">
+                            <label for="heroSecondLink">
+                                Tautan tombol kedua
+                                <span class="field-label-note">
+                                    (Menentukan halaman yang dibuka saat tombol kedua diklik)
+                                </span>
+                            </label>
 
+                            <select id="heroSecondLink" name="hero_second_link">
+                                <option value="/kontak"
+                                    @selected(old('hero_second_link', $settings->hero_second_link ?? '/kontak') === '/kontak')>
+                                    Halaman Kontak
+                                </option>
+
+                                <option value="/layanan"
+                                    @selected(old('hero_second_link', $settings->hero_second_link ?? '/kontak') === '/layanan')>
+                                    Halaman Layanan
+                                </option>
+
+                                <option value="/tentang-kami"
+                                    @selected(old('hero_second_link', $settings->hero_second_link ?? '/kontak') === '/tentang-kami')>
+                                    Tentang Kami
+                                </option>
+                            </select>
+                        </div>
                             <div class="field full">
                                 <label for="heroImage">Gambar banner</label>
                                 <div class="upload-box">

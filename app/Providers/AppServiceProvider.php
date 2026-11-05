@@ -7,8 +7,7 @@ use Illuminate\Support\Facades\View;
 use App\Models\GlobalCtaSetting;
 use App\Models\SiteSetting;
 use App\Models\ConsultationSetting;
-use A17\Twill\Facades\TwillNavigation;
-use A17\Twill\View\Components\Navigation\NavigationLink;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,9 +18,7 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        TwillNavigation::addLink(
-            NavigationLink::make()->forSingleton('homePage')
-        );
+
 
         // Pengaturan global untuk layout dan halaman publik.
         View::composer('layouts.app', function ($view) {

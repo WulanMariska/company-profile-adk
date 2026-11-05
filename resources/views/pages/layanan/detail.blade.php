@@ -1,4 +1,3 @@
-```blade
 @extends('layouts.app')
 
 @section('title', 'Sepeda Motor Baru - PT. Ari Dharma Kanti')
@@ -172,4 +171,3 @@
 </section>
 
 @endsection
-```

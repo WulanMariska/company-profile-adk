@@ -137,8 +137,15 @@
                     Footer
                 </a>
 
-             
+                <a
+                    href="{{ route('cms.global-settings.detail.index') }}"
+                    class="nav-subitem {{ request()->is('cms/pengaturan-global/detail-produk-layanan*') ? 'active' : '' }}"
+                >
+                    <span class="submenu-dot"></span>
+                    Detail Layanan
+                </a>
             </div>
+
         </div>
     </nav>
 

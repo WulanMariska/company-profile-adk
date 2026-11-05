@@ -645,16 +645,6 @@ body.adk-admin .dashboardSearch input:focus {
 
 
 
-/* Hilangkan background hitam pembungkus search Twill */
-body.adk-admin .dashboardSearch,
-body.adk-admin #searchApp,
-body.adk-admin .dashboardSearch .search,
-body.adk-admin .dashboardSearch .search__inner {
-    background: transparent !important;
-    background-color: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-}
 
 /* Pastikan area search tidak membuat blok hitam */
 body.adk-admin .dashboardSearch {

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -249,13 +248,15 @@
             overflow-wrap: anywhere;
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 700px) {
             .page-content {
                 margin-left: 0;
                 width: 100%;
                 padding: 22px 16px;
             }
+        }
 
+        @media (max-width: 900px) {
             .form-grid {
                 grid-template-columns: 1fr;
             }
@@ -383,7 +384,7 @@
     flex-shrink: 0;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 700px) {
     .page-content .topbar {
         margin: -22px -16px 24px;
         padding: 0 16px;
@@ -426,7 +427,7 @@
     line-height: 1.6;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 700px) {
     .page-content .topbar {
         margin: -22px -16px 24px;
         padding: 0 16px;
@@ -442,11 +443,46 @@
         display: none;
     }
 }
-      
-/* ===== SIDEBAR MOBILE: MENU HORIZONTAL (TEMPEL PALING BAWAH) ===== */
-@media (max-width: 700px) {
+
+/* ===== TABLET (701px - 1050px): sidebar tetap di kiri tapi lebih ramping ===== */
+@media (min-width: 701px) and (max-width: 1050px) {
 
     .sidebar {
+        width: 210px;
+        padding: 20px 12px;
+    }
+
+    .sidebar .brand img {
+        width: 130px;
+        height: 58px;
+    }
+
+    .page-content {
+        margin-left: 210px;
+        width: calc(100% - 210px);
+        padding: 24px 20px;
+    }
+
+    .page-content .topbar {
+        margin: -24px -20px 24px;
+        padding: 0 20px;
+    }
+
+    .page-content .page-heading h1 {
+        font-size: 24px;
+    }
+}
+      
+/* ===== SIDEBAR MOBILE: MENU HORIZONTAL DI ATAS (≤700px) ===== */
+@media (max-width: 700px) {
+
+    /* Sidebar tidak lagi fixed: jadi bar di atas halaman, ikut scroll */
+    .sidebar {
+        position: relative !important;
+        inset: auto !important;
+        width: 100% !important;
+        height: auto !important;
+        overflow: visible !important;
         padding: 8px 12px 0 !important;
     }
 
@@ -473,12 +509,14 @@
         flex-wrap: nowrap !important;
         align-items: center !important;
         gap: 6px !important;
+        width: 100% !important;
         overflow-x: auto !important;
         overflow-y: hidden !important;
         padding: 0 0 8px !important;
         margin: 0 !important;
         list-style: none !important;
         scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
     }
 
     .sidebar > nav::-webkit-scrollbar,
@@ -500,6 +538,12 @@
         font-size: 12px !important;
     }
 
+    /* Grup menu (Pengaturan Global) tidak melebar penuh */
+    .sidebar .nav-group {
+        width: auto !important;
+        flex: 0 0 auto !important;
+    }
+
     /* Panah dropdown disembunyikan di mobile supaya ringkas */
     .sidebar .nav-item > svg:last-child:not(:first-child) {
         display: none !important;
@@ -513,8 +557,41 @@
         display: flex !important;
         flex-direction: row !important;
         gap: 6px !important;
+        width: auto !important;
         padding: 0 !important;
         margin: 0 !important;
+    }
+
+    .sidebar .nav-subitem {
+        width: auto !important;
+        white-space: nowrap !important;
+    }
+
+    /* Teks versi desktop di bawah sidebar disembunyikan */
+    .sidebar .sidebar-bottom {
+        display: none !important;
+    }
+
+    /* Form: cegah auto-zoom iPhone & tombol simpan selebar layar */
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="url"],
+    .form-group textarea {
+        font-size: 16px;
+    }
+
+    form > .btn {
+        width: 100%;
+    }
+
+    .page-content .page-heading h1 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 400px) {
+    .page-content .page-heading h1 {
+        font-size: 20px;
     }
 }
     </style>

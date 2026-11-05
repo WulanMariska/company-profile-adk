@@ -7,7 +7,6 @@
     "license": "MIT",
     "require": {
         "php": "^8.3",
-        "area17/twill": "3.6.0",
         "intervention/image": "^3.11",
         "laravel/framework": "^13.17",
         "laravel/tinker": "^3.0"

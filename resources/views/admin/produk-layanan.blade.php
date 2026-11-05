@@ -1,13 +1,3 @@
-@php
-    $editProduct = null;
-
-    if (session('editProductId')) {
-        $editProduct = \App\Models\ProductService::find(
-            session('editProductId')
-        );
-    }
-@endphp
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -154,8 +144,8 @@
             line-height: 1.7;
         }
 
-     
-       
+
+
 /* MAIN CONTENT */
 .main {
     flex: 1;
@@ -650,7 +640,7 @@
             border-color: var(--red);
         }
 
-        
+
         /* PERBAIKAN PAGINATION LARAVEL */
         .table-footer nav {
             display: flex;
@@ -942,7 +932,7 @@
                 display: none;
             }
 
-                
+
         .topbar-right > .avatar {
             display: grid !important;
             place-items: center !important;
@@ -984,7 +974,7 @@
                 overflow-y: auto;
             }
 
-           
+
                 .main {
                     flex: 1;
                     width: auto;
@@ -994,7 +984,7 @@
 
           }
 
-        
+
 /* ===== PERBAIKAN LAYOUT UTAMA CMS ===== */
 
 /* Sidebar fixed, jadi konten harus menyediakan ruang untuknya */
@@ -1338,13 +1328,19 @@
     }
 }
 
+    .required-star {
+    color: #e50920;
+    font-weight: 700;
+    margin-left: 3px;
+}
+
     </style>
 </head>
 
 <body>
 <div class="app">
 
-  
+
 @include('admin.partials.sidebar')
 
 
@@ -1370,8 +1366,8 @@
                     </svg>
                 </button>
 
-                                
-                            
+
+
                 <div class="avatar" style="
                     display: inline-flex;
                     align-items: center;
@@ -1400,7 +1396,7 @@
                     <path d="m7 10 5 5 5-5"/>
                 </svg>
 
-                
+
 
 
             </div>
@@ -1413,12 +1409,9 @@
                     <p>Kelola data produk dan layanan perusahaan Anda.</p>
                 </div>
 
-                <button class="btn btn-primary" id="addButton">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 5v14M5 12h14"/>
-                    </svg>
-                    Tambah Produk &amp; Layanan
-                </button>
+                <a href="{{ route('cms.products-services.create') }}" class="btn btn-primary">
+                    + Tambah Produk &amp; Layanan
+                </a>
             </div>
 
             <section class="panel">
@@ -1481,7 +1474,7 @@
             data-type="{{ ucfirst($item->type) }}"
             data-category="{{ $item->category ?? 'Lainnya' }}"
         >
-                    
+
             <td>
                 <div class="product-thumb">
                     @if ($item->card_image)
@@ -1614,146 +1607,7 @@
             @csrf
 
     <div class="modal-body">
-        <div class="form-group">
-            <label for="itemName">Nama produk atau layanan</label>
-            <input id="itemName"
-                    name="name"
-                    type="text"
-                    required
-                    placeholder="Contoh: Sepeda Motor Baru">
-                   
-        </div>
 
-                <div class="form-group">
-                    <label for="itemType">Jenis</label>
-                    <select id="itemType" name="type" required>
-                        <option value="Produk">Produk</option>
-                        <option value="Layanan">Layanan</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="itemCategory">Kategori</label>
-                    <input
-                        id="itemCategory"
-                        name="category"
-                        type="text"
-                        list="categoryOptions"
-                        placeholder="Ketik atau pilih kategori..."
-                        autocomplete="off"
-                        required
-                    >
-                    <datalist id="categoryOptions">
-                        <option value="Kendaraan"></option>
-                        <option value="Elektronik"></option>
-                        <option value="Teknologi"></option>
-                        <option value="Peralatan"></option>
-                        <option value="Furniture dan Interior"></option>
-                        <option value="Olahraga"></option>
-                        <option value="Fotografi dan Barang Optik"></option>
-                        <option value="Mesin Pendingin"></option>
-                        <option value="Pertanian"></option>
-                    </datalist>
-                </div>
-
-                                
-                <div class="form-group">
-                    <label for="itemDescription">Deskripsi singkat</label>
-                    <textarea
-                        id="itemDescription"
-                        name="short_description"
-                        placeholder="Masukkan deskripsi singkat untuk card produk..."
-                    ></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="itemFullDescription">Deskripsi lengkap</label>
-                    <textarea
-                        id="itemFullDescription"
-                        name="description"
-                        rows="6"
-                        placeholder="Masukkan deskripsi lengkap untuk halaman detail..."
-                    ></textarea>
-                    <small class="form-help">
-                        Deskripsi ini digunakan pada halaman detail produk atau layanan.
-                    </small>
-                </div>
-
-                <div class="form-group">
-                    <label for="detailSectionTitle">Judul bagian detail</label>
-                    <input
-                        id="detailSectionTitle"
-                        type="text"
-                        name="detail_section_title"
-                        placeholder="Contoh: Deskripsi & Ruang Lingkup Pasokan"
-                    >
-                </div>
-
-                <div class="form-group">
-                    <label for="detailIntro">Paragraf pembuka detail</label>
-                    <textarea
-                        id="detailIntro"
-                        name="detail_intro"
-                        rows="4"
-                        placeholder="Masukkan paragraf pembuka bagian detail..."
-                    ></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label>Card Detail 1</label>
-                    <input
-                        type="text"
-                        name="feature_1_title"
-                        placeholder="Judul card 1"
-                    >
-                    <textarea
-                        name="feature_1_description"
-                        rows="3"
-                        placeholder="Deskripsi card 1..."
-                    ></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label>Card Detail 2</label>
-                    <input
-                        type="text"
-                        name="feature_2_title"
-                        placeholder="Judul card 2"
-                    >
-                    <textarea
-                        name="feature_2_description"
-                        rows="3"
-                        placeholder="Deskripsi card 2..."
-                    ></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label>Card Detail 3</label>
-                    <input
-                        type="text"
-                        name="feature_3_title"
-                        placeholder="Judul card 3"
-                    >
-                    <textarea
-                        name="feature_3_description"
-                        rows="3"
-                        placeholder="Deskripsi card 3..."
-                    ></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label>Card Detail 4</label>
-                    <input
-                        type="text"
-                        name="feature_4_title"
-                        placeholder="Judul card 4"
-                    >
-                    <textarea
-                        name="feature_4_description"
-                        rows="3"
-                        placeholder="Deskripsi card 4..."
-                    ></textarea>
-                </div>
 
                 <div class="form-group">
                     <label for="itemImage">Gambar Produk atau Layanan</label>
@@ -1860,14 +1714,11 @@
         methodInput.value = 'PUT';
         form.appendChild(methodInput);
 
-        const fields = [
-            'name', 'type', 'category',
-            'short_description', 'description',
-            'detail_section_title', 'detail_intro',
-            'feature_1_title', 'feature_1_description',
-            'feature_2_title', 'feature_2_description',
-            'feature_3_title', 'feature_3_description',
-            'feature_4_title', 'feature_4_description'
+            const fields = [
+            'name',
+            'type',
+            'category',
+            'short_description'
         ];
 
         fields.forEach(name => {

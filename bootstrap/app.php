@@ -11,12 +11,17 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
     )
-    ->withMiddleware(function (Middleware $middleware): void {
-        // Belum login lalu buka halaman CMS -> arahkan ke /login
-        $middleware->redirectGuestsTo('/login');
 
-        // Sudah login lalu buka /login -> arahkan ke CMS Beranda
-        $middleware->redirectUsersTo('/cms/beranda');
+   ->withMiddleware(function (Middleware $middleware): void {
+    // Belum login lalu buka halaman CMS -> arahkan ke /login
+    $middleware->redirectGuestsTo('/login');
+
+    // Alias middleware administrator
+    $middleware->alias([
+        'admin' => \App\Http\Middleware\AdminMiddleware::class,
+    ]);
+
+
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(

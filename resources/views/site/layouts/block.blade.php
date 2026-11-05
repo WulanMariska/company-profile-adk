@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>#madewithtwill website</title>
+    <title>Website PT. Ari Dharma Kanti</title>
 </head>
 <body>
 <div>

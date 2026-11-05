@@ -1,34 +1,36 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ImageUploadController;
+use App\Http\Controllers\Public\HomeController;
+use App\Http\Controllers\Public\AboutController;
+use App\Http\Controllers\Public\ServiceController;
+use App\Http\Controllers\Admin\GalleryController as AdminGalleryController;
+use App\Http\Controllers\Public\GalleryController;
+use App\Http\Controllers\Public\ContactController;
+use App\Http\Controllers\Admin\ContactController as AdminContactController;
+use App\Http\Controllers\Public\ServiceDetailController;
 use App\Http\Controllers\Admin\ProductServiceController;
-use App\Http\Controllers\Admin\GalleryController;
-use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\ProductServiceDetailController;
 use App\Http\Controllers\Admin\HomePageController;
 use App\Http\Controllers\Admin\GlobalSettingController;
+use App\Http\Controllers\Admin\AboutPageController;
 use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
 | LOGIN DAN LOGOUT
 |--------------------------------------------------------------------------
-| Login hanya bisa diakses user yang BELUM login (middleware guest).
-| User yang sudah login otomatis dilempar ke halaman CMS
-| (diatur di bootstrap/app.php lewat redirectUsersTo).
 */
 
-Route::middleware('guest')->group(function () {
-    Route::get('/login', [
-        LoginController::class,
-        'showLoginForm',
-    ])->name('login');
+Route::get('/login', [
+    LoginController::class,
+    'showLoginForm',
+])->name('login');
 
-    Route::post('/login', [
-        LoginController::class,
-        'login',
-    ])->name('login.submit');
-});
+Route::post('/login', [
+    LoginController::class,
+    'login',
+])->name('login.submit');
 
 Route::post('/logout', [
     LoginController::class,
@@ -38,98 +40,15 @@ Route::post('/logout', [
 
 /*
 |--------------------------------------------------------------------------
-| WEBSITE PUBLIK - BERANDA
+| WEBSITE PUBLIK
 |--------------------------------------------------------------------------
 */
 
-Route::get('/', function () {
-    $settings = \App\Models\HomePageSetting::first();
-    $ctaSetting = \App\Models\GlobalCtaSetting::first();
-
-    $galleryCount = (int) ($settings?->gallery_count ?? 4);
-
-    if (!in_array($galleryCount, [3, 4, 6, 8], true)) {
-        $galleryCount = 4;
-    }
-
-    $galleryItems = \App\Models\GalleryItem::with('category')
-        ->where('is_active', true)
-        ->whereHas('category', function ($query) {
-            $query->where('is_active', true);
-        })
-        ->orderBy('sort_order')
-        ->orderByDesc('created_at')
-        ->limit($galleryCount)
-        ->get();
-
-    return view('pages.home', compact(
-        'settings',
-        'galleryItems',
-        'ctaSetting'
-    ));
-})->name('home');
-
-
-/*
-|--------------------------------------------------------------------------
-| WEBSITE PUBLIK - TENTANG KAMI
-|--------------------------------------------------------------------------
-*/
-
-Route::get('/tentang-kami', function () {
-    $aboutPage = \App\Models\AboutPage::where('is_active', true)->first();
-
-    return view('pages.tentangkami', compact('aboutPage'));
-})->name('about');
-
-
-/*
-|--------------------------------------------------------------------------
-| WEBSITE PUBLIK - LAYANAN
-|--------------------------------------------------------------------------
-*/
-
-Route::get('/layanan', function () {
-    $productsServices = \App\Models\ProductService::where('is_active', true)
-        ->orderBy('sort_order')
-        ->orderBy('name')
-        ->get();
-
-    return view('pages.layanan.index', compact('productsServices'));
-})->name('services');
-
-
-/*
-|--------------------------------------------------------------------------
-| WEBSITE PUBLIK - GALERI
-|--------------------------------------------------------------------------
-*/
-
-Route::get('/galeri', function () {
-    $galleryItems = \App\Models\GalleryItem::with('category')
-        ->where('is_active', true)
-        ->whereHas('category', function ($query) {
-            $query->where('is_active', true);
-        })
-        ->orderBy('sort_order')
-        ->orderByDesc('created_at')
-        ->get();
-
-    return view('pages.galeri', compact('galleryItems'));
-})->name('gallery');
-
-
-/*
-|--------------------------------------------------------------------------
-| WEBSITE PUBLIK - KONTAK
-|--------------------------------------------------------------------------
-*/
-
-Route::get('/kontak', function () {
-    $siteSetting = \App\Models\SiteSetting::first();
-
-    return view('pages.kontak', compact('siteSetting'));
-})->name('contact');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/tentang-kami', [AboutController::class, 'index'])->name('about');
+Route::get('/layanan', [ServiceController::class, 'index'])->name('services');
+Route::get('/galeri', [GalleryController::class, 'index'])->name('gallery');
+Route::get('/kontak', [ContactController::class, 'index'])->name('contact');
 
 
 /*
@@ -138,84 +57,28 @@ Route::get('/kontak', function () {
 |--------------------------------------------------------------------------
 */
 
-Route::get('/layanan/sepeda-motor-baru', function () {
-    return view('pages.layanan.detail');
-})->name('service.motor');
+Route::get('/layanan/sepeda-motor-baru', [
+    ServiceDetailController::class,
+    'show',
+])->defaults('slug', 'perdagangan-eceran-sepeda-motor-baru')
+  ->name('service.motor');
 
-Route::get('/layanan/peralatan-telekomunikasi', function () {
-    return view('pages.layanan.telekomunikasi');
-})->name('service.telecommunication');
+Route::get('/layanan/peralatan-telekomunikasi', [
+    ServiceDetailController::class,
+    'show',
+])->defaults('slug', 'perdagangan-besar-peralatan-telekomunikasi')
+  ->name('service.telecommunication');
 
-Route::get('/layanan/mesin-pendingin', function () {
-    return view('pages.layanan.mesin-pendingin');
-})->name('service.cooling');
+Route::get('/layanan/mesin-pendingin', [
+    ServiceDetailController::class,
+    'show',
+])->defaults('slug', 'industri-mesin-pendingin')
+  ->name('service.cooling');
 
-
-/*
-|--------------------------------------------------------------------------
-| ROUTE DETAIL UMUM
-|--------------------------------------------------------------------------
-*/
-
-Route::get('/layanan/{slug}', function ($slug) {
-    switch ($slug) {
-        case 'sepeda-motor-baru':
-            return view('pages.layanan.detail');
-
-        case 'peralatan-telekomunikasi':
-            return view('pages.layanan.telekomunikasi');
-
-        case 'mesin-pendingin':
-            return view('pages.layanan.mesin-pendingin');
-
-        case 'peralatan-perlengkapan-olahraga':
-            return view('pages.layanan.peralatan-olahraga');
-
-        case 'fotografi-barang-optik':
-            return view('pages.layanan.fotografi-barang-optik');
-
-        case 'furniture-interior':
-            return view('pages.layanan.furniture-interior');
-
-        case 'penyewaan-mesin-peralatan-kantor':
-            return view('pages.layanan.penyewaan-mesin-peralatan-kantor');
-
-        case 'jasa-teknologi-informasi-komputer':
-            return view('pages.layanan.jasa-teknologi-informasi-komputer');
-
-        case 'piranti-lunak':
-            return view('pages.layanan.piranti-lunak');
-
-        case 'suku-cadang-elektronik':
-            return view('pages.layanan.suku-cadang-elektronik');
-
-        case 'mesin-peralatan-pertanian':
-            return view('pages.layanan.mesin-peralatan-pertanian');
-
-        case 'peralatan-masak-dapur-elektronik':
-            return view('pages.layanan.peralatan-masak-dapur-elektronik');
-
-        case 'komputer-perlengkapannya':
-            return view('pages.layanan.komputer-perlengkapannya');
-
-        case 'suku-cadang-aksesoris-motor':
-            return view('pages.layanan.suku-cadang-aksesoris-motor');
-
-        default:
-            $productService = \App\Models\ProductService::where('slug', $slug)
-                ->where('is_active', true)
-                ->first();
-
-            if (!$productService) {
-                abort(404);
-            }
-
-            return view(
-                'pages.layanan.detail-dinamis',
-                compact('productService')
-            );
-    }
-})->name('service.detail');
+Route::get('/layanan/{slug}', [
+    ServiceDetailController::class,
+    'show',
+])->name('service.detail');
 
 
 /*
@@ -224,38 +87,48 @@ Route::get('/layanan/{slug}', function ($slug) {
 |--------------------------------------------------------------------------
 */
 
-Route::get('/tentangkami', function () {
-    return view('pages.tentangkami');
-})->name('about-us');
+Route::get('/tentangkami', [AboutController::class, 'index'])
+    ->name('about-us');
 
 
 /*
 |--------------------------------------------------------------------------
 | PREVIEW CMS
 |--------------------------------------------------------------------------
-| Tetap dipisahkan dari CMS utama.
-| Route preview ini belum dilindungi middleware auth.
 */
 
-Route::get('/preview-cms-dashboard', function () {
-    return view('admin.dashboard');
-})->name('preview.cms.dashboard');
+Route::middleware(['auth', 'admin'])->group(function () {
 
-Route::get('/preview-cms-produk-layanan', [
-    ProductServiceController::class,
-    'index',
-])->name('preview.cms.produk-layanan');
+        Route::get('/preview-cms-dashboard', [
+            HomePageController::class,
+            'preview',
+        ])->name('preview.cms.dashboard');
 
-Route::get('/preview-cms-galeri', [
-    GalleryController::class,
-    'index',
-])->name('preview.cms.galeri');
 
-Route::view('/preview-cms-tentang-kami', 'admin.tentang-kami')
-    ->name('preview.cms.tentang-kami');
+            Route::get('/preview-cms-produk-layanan', [
+                ProductServiceController::class,
+                'index',
+            ])->name('preview.cms.produk-layanan');
 
-Route::view('/preview-cms-kontak', 'admin.kontak')
-    ->name('preview.cms.kontak');
+
+        Route::get('/preview-cms-galeri', [
+            AdminGalleryController::class,
+            'index',
+        ])->name('preview.cms.galeri');
+
+
+        Route::get('/preview-cms-tentang-kami', [
+            AboutPageController::class,
+            'index',
+        ])->name('preview.cms.tentang-kami');
+
+
+        Route::get('/preview-cms-kontak', [
+            AdminContactController::class,
+            'index',
+        ])->name('preview.cms.kontak');
+
+});
 
 
 /*
@@ -266,28 +139,40 @@ Route::view('/preview-cms-kontak', 'admin.kontak')
 
 Route::prefix('cms')
     ->name('cms.')
-    ->middleware('auth')
+    ->middleware(['auth', 'admin'])
     ->group(function () {
+
+        // Halaman daftar produk dan layanan
         Route::get('/produk-layanan', [
             ProductServiceController::class,
             'index',
         ])->name('products-services.index');
 
+        // Halaman form tambah
+        Route::get('/produk-layanan/tambah', [
+            ProductServiceController::class,
+            'create',
+        ])->name('products-services.create');
+
+        // Halaman form edit
         Route::get('/produk-layanan/{id}/edit', [
             ProductServiceController::class,
             'edit',
         ])->name('products-services.edit');
 
+        // Proses menyimpan data baru
         Route::post('/produk-layanan', [
             ProductServiceController::class,
             'store',
         ])->name('products-services.store');
 
+        // Proses memperbarui data
         Route::put('/produk-layanan/{id}', [
             ProductServiceController::class,
             'update',
         ])->name('products-services.update');
 
+        // Proses menghapus data
         Route::delete('/produk-layanan/{id}', [
             ProductServiceController::class,
             'destroy',
@@ -301,7 +186,7 @@ Route::prefix('cms')
 |--------------------------------------------------------------------------
 */
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'admin'])->group(function ()   {
     // CMS Beranda
     Route::get('/cms/beranda', [
         HomePageController::class,
@@ -315,25 +200,26 @@ Route::middleware('auth')->group(function () {
 
     // CMS Tentang Kami
     Route::get('/cms/tentang-kami', [
-        \App\Http\Controllers\Admin\AboutPageController::class,
+        AboutPageController::class,
         'index',
     ])->name('cms.about');
 
     Route::put('/cms/tentang-kami', [
-        \App\Http\Controllers\Admin\AboutPageController::class,
+        AboutPageController::class,
         'update',
     ])->name('cms.about.update');
 
     // CMS Kontak
     Route::get('/cms/kontak', [
-        ContactController::class,
+        AdminContactController::class,
         'index',
     ])->name('cms.contact');
 
     Route::put('/cms/kontak', [
-        ContactController::class,
+        AdminContactController::class,
         'update',
     ])->name('cms.contact.update');
+
 });
 
 
@@ -345,25 +231,25 @@ Route::middleware('auth')->group(function () {
 
 Route::prefix('cms')
     ->name('cms.')
-    ->middleware('auth')
+    ->middleware(['auth', 'admin'])
     ->group(function () {
         Route::get('/galeri', [
-            GalleryController::class,
+            AdminGalleryController::class,
             'index',
         ])->name('gallery.index');
 
         Route::post('/galeri', [
-            GalleryController::class,
+            AdminGalleryController::class,
             'store',
         ])->name('gallery.store');
 
         Route::put('/galeri/{id}', [
-            GalleryController::class,
+            AdminGalleryController::class,
             'update',
         ])->name('gallery.update');
 
         Route::delete('/galeri/{id}', [
-            GalleryController::class,
+            AdminGalleryController::class,
             'destroy',
         ])->name('gallery.destroy');
     });
@@ -377,7 +263,7 @@ Route::prefix('cms')
 
 Route::prefix('cms')
     ->name('cms.')
-    ->middleware('auth')
+    ->middleware(['auth', 'admin'])
     ->group(function () {
         Route::get('/pengaturan-global', [
             GlobalSettingController::class,
@@ -398,4 +284,22 @@ Route::prefix('cms')
             GlobalSettingController::class,
             'updateConsultation',
         ])->name('global-settings.konsultasi.update');
+
+
+                // CMS Detail Produk & Layanan
+        Route::get('/pengaturan-global/detail-produk-layanan', [
+            ProductServiceDetailController::class,
+            'index',
+        ])->name('global-settings.detail.index');
+
+        Route::get('/pengaturan-global/detail-produk-layanan/{id}/edit', [
+            ProductServiceDetailController::class,
+            'edit',
+        ])->name('global-settings.detail.edit');
+
+        Route::put('/pengaturan-global/detail-produk-layanan/{id}', [
+            ProductServiceDetailController::class,
+            'update',
+        ])->name('global-settings.detail.update');
+
     });
