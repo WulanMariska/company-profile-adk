@@ -104,4 +104,17 @@ class ProductServiceDetailController extends Controller
             ->route('cms.global-settings.detail.edit', $id)
             ->with('success', 'Detail produk atau layanan berhasil diperbarui.');
     }
+
+
+
+    public function destroy($id)
+{
+    $item = \App\Models\ProductService::findOrFail($id);
+
+    $item->delete();
+
+    return redirect()
+        ->route('cms.global-settings.detail.index')
+        ->with('success', 'Data berhasil dihapus.');
+}
 }

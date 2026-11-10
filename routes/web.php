@@ -93,46 +93,6 @@ Route::get('/tentangkami', [AboutController::class, 'index'])
 
 /*
 |--------------------------------------------------------------------------
-| PREVIEW CMS
-|--------------------------------------------------------------------------
-*/
-
-Route::middleware(['auth', 'admin'])->group(function () {
-
-        Route::get('/preview-cms-dashboard', [
-            HomePageController::class,
-            'preview',
-        ])->name('preview.cms.dashboard');
-
-
-            Route::get('/preview-cms-produk-layanan', [
-                ProductServiceController::class,
-                'index',
-            ])->name('preview.cms.produk-layanan');
-
-
-        Route::get('/preview-cms-galeri', [
-            AdminGalleryController::class,
-            'index',
-        ])->name('preview.cms.galeri');
-
-
-        Route::get('/preview-cms-tentang-kami', [
-            AboutPageController::class,
-            'index',
-        ])->name('preview.cms.tentang-kami');
-
-
-        Route::get('/preview-cms-kontak', [
-            AdminContactController::class,
-            'index',
-        ])->name('preview.cms.kontak');
-
-});
-
-
-/*
-|--------------------------------------------------------------------------
 | CMS PRODUK & LAYANAN
 |--------------------------------------------------------------------------
 */
@@ -186,7 +146,7 @@ Route::prefix('cms')
 |--------------------------------------------------------------------------
 */
 
-Route::middleware(['auth', 'admin'])->group(function ()   {
+Route::middleware(['auth', 'admin'])->group(function () {
     // CMS Beranda
     Route::get('/cms/beranda', [
         HomePageController::class,
@@ -219,7 +179,6 @@ Route::middleware(['auth', 'admin'])->group(function ()   {
         AdminContactController::class,
         'update',
     ])->name('cms.contact.update');
-
 });
 
 
@@ -285,8 +244,7 @@ Route::prefix('cms')
             'updateConsultation',
         ])->name('global-settings.konsultasi.update');
 
-
-                // CMS Detail Produk & Layanan
+        // CMS Detail Produk & Layanan
         Route::get('/pengaturan-global/detail-produk-layanan', [
             ProductServiceDetailController::class,
             'index',
@@ -302,4 +260,9 @@ Route::prefix('cms')
             'update',
         ])->name('global-settings.detail.update');
 
+        // TAMBAHAN: proses menghapus data detail produk & layanan
+        Route::delete('/pengaturan-global/detail-produk-layanan/{id}', [
+            ProductServiceDetailController::class,
+            'destroy',
+        ])->name('global-settings.detail.destroy');
     });

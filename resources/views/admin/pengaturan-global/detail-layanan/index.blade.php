@@ -929,7 +929,7 @@
                                             </a>
 
                                             <form
-                                                action="{{ Route::has('cms.global-settings.detail.destroy') ? route('cms.global-settings.detail.destroy', $item->id) : '' }}"
+                                                action="{{ route('cms.global-settings.detail.destroy', $item->id) }}"
                                                 method="POST"
                                                 onsubmit="return confirm('Yakin ingin menghapus data ini?')"
                                             >

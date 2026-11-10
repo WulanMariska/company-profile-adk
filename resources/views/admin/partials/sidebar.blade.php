@@ -1,3 +1,380 @@
+{{-- ==========================================================================
+     CSS SIDEBAR (mandiri)
+     Seluruh gaya sidebar ada di sini supaya tampil benar walaupun CSS layout
+     tidak terbaca. Selector dibatasi ke .sidebar sehingga tidak memengaruhi
+     halaman lain.
+     ========================================================================== --}}
+<style>
+    .sidebar {
+        position: fixed;
+        inset: 0 auto 0 0;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        width: var(--sidebar-w, 225px);
+        height: 100vh;
+        padding: 20px 12px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        background: var(--sidebar, #101820);
+        color: #c7d0dc;
+        box-sizing: border-box;
+        transition: transform .25s ease;
+        scrollbar-width: thin;
+        scrollbar-color: #3a4655 transparent;
+    }
+
+    .sidebar *,
+    .sidebar *::before,
+    .sidebar *::after {
+        box-sizing: border-box;
+    }
+
+    .sidebar::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb {
+        background: #3a4655;
+        border-radius: 6px;
+    }
+
+    .app.sidebar-collapsed .sidebar {
+        transform: translateX(-100%);
+    }
+
+    /* Logo */
+
+    .sidebar .brand {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px 0 25px;
+        margin-bottom: 22px;
+        border-bottom: 1px solid #27313b;
+    }
+
+    .sidebar .brand-logo {
+        display: block;
+        width: 145px;
+        height: 65px;
+        max-width: 100%;
+        object-fit: contain;
+    }
+
+    .sidebar .brand-name {
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 1.5;
+        color: #fff;
+        text-align: center;
+    }
+
+    .sidebar .brand-name span {
+        color: #ff747a;
+    }
+
+    /* Daftar menu */
+
+    .sidebar .nav-list {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        width: 100%;
+    }
+
+    .sidebar .nav-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        min-height: 44px;
+        padding: 11px 12px;
+        margin: 0;
+        border: 0;
+        border-radius: 7px;
+        background: transparent;
+        color: #d5dbe3;
+        text-decoration: none;
+        text-align: left;
+        font: inherit;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 1.4;
+        cursor: pointer;
+        transition: background-color .2s ease, color .2s ease;
+    }
+
+    .sidebar .nav-item:visited {
+        color: #d5dbe3;
+    }
+
+    .sidebar .nav-item svg {
+        display: block;
+        width: 19px;
+        height: 19px;
+        flex: 0 0 19px;
+        stroke: currentColor;
+    }
+
+    .sidebar .nav-item:hover {
+        background: #202a35;
+        color: #fff;
+    }
+
+    .sidebar .nav-item.active,
+    .sidebar .nav-item.active:visited {
+        background: var(--red, #e50920);
+        color: #fff;
+        font-weight: 700;
+    }
+
+    /* Grup Pengaturan Global */
+
+    .sidebar .nav-group {
+        width: 100%;
+    }
+
+    .sidebar .nav-toggle {
+        appearance: none;
+        -webkit-appearance: none;
+        box-shadow: none;
+        outline-offset: 2px;
+    }
+
+    .sidebar .nav-toggle span {
+        flex: 1;
+        min-width: 0;
+        white-space: nowrap;
+    }
+
+    .sidebar .nav-toggle .submenu-chevron {
+        width: 16px;
+        height: 16px;
+        flex: 0 0 16px;
+        margin-left: auto;
+        transition: transform .2s ease;
+    }
+
+    .sidebar .nav-toggle[aria-expanded="true"] .submenu-chevron {
+        transform: rotate(180deg);
+    }
+
+    .sidebar .nav-submenu {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 5px;
+        width: 100%;
+        padding: 7px 0 8px 34px;
+    }
+
+    .sidebar .nav-subitem {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        min-height: 38px;
+        padding: 9px 12px;
+        border: 1px solid transparent;
+        border-radius: 6px;
+        background: transparent;
+        color: #aeb9c8;
+        text-decoration: none;
+        font-size: 12px;
+        line-height: 1.4;
+        transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+    }
+
+    .sidebar .nav-subitem:visited {
+        color: #aeb9c8;
+    }
+
+    .sidebar .submenu-dot {
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        flex: 0 0 6px;
+        border-radius: 50%;
+        background: #64748b;
+        transition: background-color .2s ease;
+    }
+
+    .sidebar .nav-subitem:hover {
+        background: #202a35;
+        color: #fff;
+    }
+
+    .sidebar .nav-subitem:hover .submenu-dot {
+        background: #fff;
+    }
+
+    .sidebar .nav-subitem.active,
+    .sidebar .nav-subitem.active:visited {
+        background: rgba(229, 9, 32, .14);
+        border-color: rgba(229, 9, 32, .35);
+        color: #ff6878;
+        font-weight: 700;
+    }
+
+    .sidebar .nav-subitem.active .submenu-dot {
+        background: var(--red, #e50920);
+    }
+
+    /* Bagian bawah */
+
+    .sidebar .sidebar-bottom {
+        margin-top: auto;
+        padding: 18px 10px 0;
+        border-top: 1px solid #27313b;
+        color: #8190a1;
+        font-size: 10px;
+        line-height: 1.7;
+    }
+
+    .sidebar .sidebar-bottom form {
+        margin: 0;
+    }
+
+    .sidebar .logout-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        min-height: 42px;
+        padding: 10px 12px;
+        margin-bottom: 16px;
+        border: 1px solid rgba(229, 9, 32, .45);
+        border-radius: 7px;
+        background: rgba(229, 9, 32, .12);
+        color: #ff6878;
+        font: inherit;
+        font-size: 13px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background-color .2s ease, color .2s ease;
+    }
+
+    .sidebar .logout-button svg {
+        width: 18px;
+        height: 18px;
+        flex: 0 0 18px;
+    }
+
+    .sidebar .logout-button:hover {
+        background: var(--red, #e50920);
+        color: #fff;
+    }
+
+    .sidebar .sidebar-brand-info strong {
+        color: #8190a1;
+    }
+
+    /* Tablet */
+
+    @media (min-width: 701px) and (max-width: 1050px) {
+        .sidebar .brand-logo {
+            width: 130px;
+            height: 58px;
+        }
+    }
+
+    /* Mobile: menu horizontal di atas */
+
+    @media (max-width: 700px) {
+        .sidebar {
+            position: relative;
+            inset: auto;
+            width: 100%;
+            height: auto;
+            padding: 8px 12px 10px;
+            overflow: visible;
+            transform: none !important;
+        }
+
+        .app.sidebar-collapsed .sidebar {
+            display: none;
+        }
+
+        .sidebar .brand {
+            padding: 0 0 8px;
+            margin-bottom: 8px;
+        }
+
+        .sidebar .brand-logo {
+            width: 100px;
+            height: 42px;
+        }
+
+        .sidebar .nav-list {
+            flex-direction: row;
+            align-items: center;
+            gap: 5px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding-bottom: 6px;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .sidebar .nav-list::-webkit-scrollbar {
+            display: none;
+        }
+
+        .sidebar .nav-item {
+            flex: 0 0 auto;
+            width: auto;
+            min-height: 38px;
+            padding: 8px 12px;
+            font-size: 12px;
+            white-space: nowrap;
+        }
+
+        .sidebar .nav-group {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            flex: 0 0 auto;
+            width: auto;
+        }
+
+        .sidebar .nav-toggle span {
+            flex: 0 0 auto;
+        }
+
+        .sidebar .nav-toggle .submenu-chevron {
+            margin-left: 4px;
+        }
+
+        .sidebar .nav-submenu {
+            flex-direction: row;
+            width: auto;
+            gap: 5px;
+            padding: 0;
+        }
+
+        .sidebar .nav-subitem {
+            width: auto;
+            min-height: 36px;
+            white-space: nowrap;
+        }
+
+        .sidebar .sidebar-bottom {
+            padding: 6px 0 0;
+            border-top: 0;
+        }
+
+        .sidebar .logout-button {
+            min-height: 38px;
+            margin-bottom: 0;
+            font-size: 12px;
+        }
+
+        .sidebar .sidebar-brand-info {
+            display: none;
+        }
+    }
+</style>
 
 <aside class="sidebar">
     <div class="brand">
@@ -18,7 +395,7 @@
             class="nav-item {{ request()->is('cms/beranda') ? 'active' : '' }}"
             href="{{ route('cms.dashboard') }}"
         >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor"
                  stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
                 <path d="m3 10 9-7 9 7"/>
                 <path d="M5 9v11h14V9"/>
@@ -32,7 +409,7 @@
             class="nav-item {{ request()->is('cms/produk-layanan*') ? 'active' : '' }}"
             href="{{ route('cms.products-services.index') }}"
         >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor"
                  stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
                 <path d="m12 3 9 5-9 5-9-5 9-5Z"/>
                 <path d="m3 8 9 5 9-5"/>
@@ -47,7 +424,7 @@
             class="nav-item {{ request()->is('cms/galeri*') ? 'active' : '' }}"
             href="{{ route('cms.gallery.index') }}"
         >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor"
                  stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="3" y="3" width="18" height="18" rx="3"/>
                 <circle cx="8.5" cy="8.5" r="1.5"/>
@@ -61,7 +438,7 @@
             class="nav-item {{ request()->is('cms/tentang-kami') ? 'active' : '' }}"
             href="{{ route('cms.about') }}"
         >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor"
                  stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M3 21h18"/>
                 <path d="M5 21V7l7-4 7 4v14"/>
@@ -76,7 +453,7 @@
             class="nav-item {{ request()->is('cms/kontak') ? 'active' : '' }}"
             href="{{ route('cms.contact') }}"
         >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor"
                  stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="3" y="5" width="18" height="14" rx="2"/>
                 <path d="m3 7 9 6 9-6"/>
@@ -91,15 +468,16 @@
         @endphp
 
         <div class="nav-group {{ $isGlobalSettings ? 'active-group' : '' }}">
+            {{-- Tombol induk tidak diberi class "active" (tidak merah); yang di-highlight hanya submenu aktif --}}
             <button
                 type="button"
-                class="nav-item nav-toggle {{ $isGlobalSettings ? 'active' : '' }}"
+                class="nav-item nav-toggle"
                 id="globalSettingsToggle"
                 aria-expanded="{{ $isGlobalSettings ? 'true' : 'false' }}"
                 aria-controls="globalSettingsSubmenu"
                 onclick="toggleGlobalSettings()"
             >
-                <svg class="settings-icon" viewBox="0 0 24 24"
+                <svg class="settings-icon" viewBox="0 0 24 24" width="19" height="19"
                      fill="none" stroke="currentColor" stroke-width="1.7"
                      stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="3"/>
@@ -108,7 +486,7 @@
 
                 <span>Pengaturan Global</span>
 
-                <svg class="submenu-chevron" viewBox="0 0 24 24"
+                <svg class="submenu-chevron" viewBox="0 0 24 24" width="16" height="16"
                      fill="none" stroke="currentColor" stroke-width="2"
                      stroke-linecap="round" stroke-linejoin="round"
                      aria-hidden="true">
@@ -145,258 +523,36 @@
                     Detail Layanan
                 </a>
             </div>
-
         </div>
     </nav>
 
-  
+    <div class="sidebar-bottom">
+        <form action="{{ route('logout') }}" method="POST"
+              onsubmit="return confirm('Apakah kamu yakin ingin keluar dari CMS?');">
+            @csrf
 
-<div class="sidebar-bottom">
-    <form action="{{ route('logout') }}" method="POST"
-          onsubmit="return confirm('Apakah kamu yakin ingin keluar dari CMS?');">
-        @csrf
+            <button type="submit" class="logout-button">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none"
+                     stroke="currentColor" stroke-width="1.8"
+                     stroke-linecap="round" stroke-linejoin="round"
+                     aria-hidden="true">
+                    <path d="M10 17l5-5-5-5"/>
+                    <path d="M15 12H3"/>
+                    <path d="M12 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-6"/>
+                </svg>
+                <span>Keluar</span>
+            </button>
+        </form>
 
-        <button type="submit" class="logout-button">
-            <svg viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" stroke-width="1.8"
-                 stroke-linecap="round" stroke-linejoin="round"
-                 aria-hidden="true">
-                <path d="M10 17l5-5-5-5"/>
-                <path d="M15 12H3"/>
-                <path d="M12 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-6"/>
-            </svg>
-            <span>Keluar</span>
-        </button>
-    </form>
-
-    <div class="sidebar-brand-info">
-        <strong>ADK CMS</strong>
-        <br>
-        Content Management System
-        <br>
-        &copy; 2026 Ari Dharma Kanti
+        <div class="sidebar-brand-info">
+            <strong>ADK CMS</strong>
+            <br>
+            Content Management System
+            <br>
+            &copy; 2026 Ari Dharma Kanti
+        </div>
     </div>
-</div>
 </aside>
-
-
-
-<style>
-    /* NAVIGASI SIDEBAR ADK */
-    .sidebar .nav-list {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        width: 100%;
-    }
-
-    .sidebar .nav-item {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        width: 100%;
-        min-height: 44px;
-        padding: 11px 12px;
-        margin: 0;
-        border: 0;
-        border-radius: 7px;
-        background: transparent;
-        color: #d5dbe3;
-        text-decoration: none;
-        text-align: left;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 13px;
-        font-weight: 400;
-        line-height: 1.4;
-        cursor: pointer;
-        transition: background-color .2s ease, color .2s ease;
-    }
-
-    .sidebar .nav-item svg {
-        display: block;
-        width: 19px;
-        height: 19px;
-        flex: 0 0 19px;
-        stroke: currentColor;
-        transition: transform .2s ease;
-    }
-
-    .sidebar .nav-item:hover {
-        background: #202a35;
-        color: #fff;
-    }
-
-    .sidebar .nav-item.active {
-        background: #e50920;
-        color: #fff;
-        font-weight: 700;
-    }
-
-    .sidebar .nav-group {
-        width: 100%;
-    }
-
-    /* TOMBOL PENGATURAN GLOBAL */
-    .sidebar .nav-toggle {
-        appearance: none;
-        -webkit-appearance: none;
-        box-shadow: none;
-        outline-offset: 2px;
-    }
-
-    .sidebar .nav-toggle span {
-        flex: 1;
-        min-width: 0;
-    }
-
-    .sidebar .nav-toggle .submenu-chevron {
-        width: 16px;
-        height: 16px;
-        flex: 0 0 16px;
-        margin-left: auto;
-        transition: transform .2s ease;
-    }
-
-    .sidebar .nav-toggle[aria-expanded="true"] .submenu-chevron {
-        transform: rotate(180deg);
-    }
-
-    .sidebar .nav-toggle.active {
-        background: #e50920;
-        color: #fff;
-    }
-
-    /* SUBMENU CTA, FOOTER, KONSULTASI */
-    .sidebar .nav-submenu {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        width: 100%;
-        gap: 5px;
-        padding: 7px 0 8px 34px;
-        box-sizing: border-box;
-    }
-
-    .sidebar .nav-subitem {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        width: 100%;
-        min-height: 38px;
-        box-sizing: border-box;
-        padding: 9px 12px;
-        border: 1px solid transparent;
-        border-radius: 6px;
-        background: transparent;
-        color: #aeb9c8;
-        text-decoration: none;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 12px;
-        line-height: 1.4;
-        transition: background-color .2s ease, color .2s ease, border-color .2s ease;
-    }
-
-    .sidebar .submenu-dot {
-        display: inline-block;
-        width: 6px;
-        height: 6px;
-        flex: 0 0 6px;
-        border-radius: 50%;
-        background: #64748b;
-        transition: background-color .2s ease;
-    }
-
-    .sidebar .nav-subitem:hover {
-        background: #202a35;
-        color: #fff;
-    }
-
-    .sidebar .nav-subitem:hover .submenu-dot {
-        background: #fff;
-    }
-
-    .sidebar .nav-subitem.active {
-        background: rgba(229, 9, 32, .14);
-        border-color: rgba(229, 9, 32, .35);
-        color: #ff6878;
-        font-weight: 700;
-    }
-
-    .sidebar .nav-subitem.active .submenu-dot {
-        background: #e50920;
-    }
-
-    /* FOOTER SIDEBAR */
-    .sidebar .sidebar-bottom {
-        margin-top: auto;
-        padding-top: 18px;
-        color: #8190a1;
-        font-size: 10px;
-        line-height: 1.7;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 700px) {
-        .sidebar .nav-list {
-            gap: 5px;
-        }
-
-        .sidebar .nav-item {
-            min-height: 42px;
-        }
-
-        .sidebar .nav-submenu {
-            padding-left: 22px;
-        }
-
-        .sidebar .nav-subitem {
-            min-height: 36px;
-        }
-    }
-
-    
-        .sidebar .logout-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
-            min-height: 42px;
-            padding: 10px 12px;
-            margin-bottom: 16px;
-            border: 1px solid rgba(229, 9, 32, 0.45);
-            border-radius: 7px;
-            background: rgba(229, 9, 32, 0.12);
-            color: #ff6878;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 13px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: background-color .2s ease, color .2s ease;
-        }
-
-        .sidebar .logout-button svg {
-            width: 18px;
-            height: 18px;
-            flex: 0 0 18px;
-        }
-
-        .sidebar .logout-button:hover {
-            background: #e50920;
-            color: #fff;
-        }
-
-        .sidebar .sidebar-brand-info {
-            color: #8190a1;
-            font-size: 10px;
-            line-height: 1.7;
-        }
-
-        .sidebar .sidebar-brand-info strong {
-            color: #8190a1;
-        }
-
-</style>
 
 <script>
     function toggleGlobalSettings() {
