@@ -1301,17 +1301,29 @@
             .about-page .save-row .btn { width: 100%; }
         }
 
-        /* ================================================================
+         /* ================================================================
            CMS KONTAK — CSS KHUSUS HALAMAN
            Seluruh selector dibatasi .contact-page agar tidak mengubah UI
            halaman CMS lainnya.
+           Responsif: Laptop (>1050px), Tablet (701-1050px), HP (≤700px)
            ================================================================ */
+
+        /* ---------- LAPTOP / DESKTOP (default) ---------- */
+
+        .contact-page {
+            width: 100%;
+            min-width: 0;
+        }
 
         .contact-page .grid {
             display: grid;
-            grid-template-columns: minmax(0, 1.1fr) minmax(300px, .9fr);
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
             gap: 20px;
             align-items: start;
+        }
+
+        .contact-page .grid > * {
+            min-width: 0;
         }
 
         .contact-page .panel {
@@ -1345,6 +1357,7 @@
 
         .contact-page .group {
             margin-bottom: 17px;
+            min-width: 0;
         }
 
         .contact-page .group label {
@@ -1356,7 +1369,10 @@
 
         .contact-page .group input,
         .contact-page .group textarea {
+            display: block;
             width: 100%;
+            max-width: 100%;
+            min-width: 0;
             padding: 11px 12px;
             border: 1px solid #dfe5ec;
             border-radius: 5px;
@@ -1386,7 +1402,7 @@
 
         .contact-page .two {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
             gap: 14px;
         }
 
@@ -1486,12 +1502,19 @@
             border-top: 1px solid var(--line);
         }
 
+        .contact-page .map-actions #mapStatus {
+            min-width: 0;
+            overflow-wrap: anywhere;
+        }
+
         .contact-page .status {
             display: block;
             padding: 11px 13px;
             margin-bottom: 15px;
             border-radius: 5px;
             font-size: 11px;
+            line-height: 1.6;
+            overflow-wrap: anywhere;
         }
 
         .contact-page .status-success {
@@ -1509,20 +1532,107 @@
             padding-left: 20px;
         }
 
+        /* ---------- TABLET (701px - 1050px): panel tersusun ke bawah ---------- */
+
         @media (min-width: 701px) and (max-width: 1050px) {
             .contact-page .grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: minmax(0, 1fr);
+                gap: 0;
+            }
+
+            .contact-page .map-preview {
+                min-height: 340px;
+            }
+
+            .contact-page .map-frame {
+                height: 340px;
             }
         }
 
+        /* ---------- HP (≤700px) ---------- */
+
         @media (max-width: 700px) {
-            .contact-page .two {
-                grid-template-columns: 1fr;
+            .contact-page .grid {
+                grid-template-columns: minmax(0, 1fr);
                 gap: 0;
+            }
+
+            .contact-page .panel-head {
+                padding: 16px;
             }
 
             .contact-page .panel-body {
                 padding: 16px;
+            }
+
+            .contact-page .two {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 0;
+            }
+
+            /* cegah auto-zoom di iPhone saat fokus ke input */
+            .contact-page .group input,
+            .contact-page .group textarea {
+                font-size: 16px;
+            }
+
+            /* tombol Reset & Simpan tersusun penuh, Simpan di atas */
+            .contact-page .actions {
+                flex-direction: column-reverse;
+                gap: 8px;
+            }
+
+            .contact-page .actions .btn {
+                width: 100%;
+            }
+
+            .contact-page .map-preview {
+                min-height: 240px;
+            }
+
+            .contact-page .map-frame {
+                height: 240px;
+            }
+
+            .contact-page .map-note {
+                padding: 12px 16px;
+            }
+
+            .contact-page .map-actions {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
+                padding: 14px 16px;
+                text-align: center;
+            }
+
+            .contact-page .map-actions .btn {
+                width: 100%;
+            }
+        }
+
+        /* ---------- HP kecil (≤420px) ---------- */
+
+        @media (max-width: 420px) {
+            .contact-page .panel-head,
+            .contact-page .panel-body {
+                padding: 14px;
+            }
+
+            .contact-page .map-preview {
+                min-height: 210px;
+            }
+
+            .contact-page .map-frame {
+                height: 210px;
+            }
+
+            .contact-page .placeholder {
+                padding: 18px;
+            }
+
+            .contact-page .pin {
+                font-size: 32px;
             }
         }
 
@@ -3437,6 +3547,49 @@ flex-shrink: 0;
     .footer-page .btn, .footer-page button[type="submit"] { width: 100%; }
 }
 
+
+/* =========================================================
+   FIX MENU PENGATURAN GLOBAL DI HP
+   Saat grup "Pengaturan Global" terbuka, menu atas dibuat
+   turun ke baris baru, sehingga submenu (Pengaturan CTA,
+   Footer, Detail Layanan) tampil penuh di bawahnya.
+   Saat grup tertutup, menu tetap satu baris yang bisa digeser.
+   ========================================================= */
+@media (max-width: 700px) {
+
+    /* pastikan atribut hidden tetap menyembunyikan submenu saat tertutup */
+    .sidebar .nav-submenu[hidden] {
+        display: none !important;
+    }
+
+    /* menu boleh turun ke baris baru saat grup terbuka */
+    .sidebar .nav-list:has(.nav-toggle[aria-expanded="true"]) {
+        flex-wrap: wrap;
+        overflow: visible;
+        padding-bottom: 0;
+    }
+
+    /* tombol Pengaturan Global tetap ikut berderet dengan menu lain */
+    .sidebar .nav-list:has(.nav-toggle[aria-expanded="true"]) .nav-group {
+        display: contents;
+    }
+
+    /* submenu tampil di baris sendiri selebar layar */
+    .sidebar .nav-list:has(.nav-toggle[aria-expanded="true"]) .nav-submenu {
+        flex: 0 0 100%;
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 6px;
+        padding: 4px 0 6px;
+    }
+
+    .sidebar .nav-list:has(.nav-toggle[aria-expanded="true"]) .nav-subitem {
+        flex: 0 0 auto;
+        width: auto;
+        min-height: 36px;
+        white-space: nowrap;
+    }
+}
 
     </style>
 
